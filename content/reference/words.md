@@ -104,6 +104,23 @@ to demo [
 ]
 ```
 
+Worked example:
+
+```frothy
+speed is 75
+
+to nested [
+  here speed is 10;
+  when true [
+    here speed is 3;
+    speed
+  ]
+]
+```
+
+The result is `3`, not `10` and not `75`, because the innermost reachable local
+wins.
+
 Source of truth: `docs/spec/Frothy_Language_Spec_v0_1.md`, sections 4.2, 4.3,
 5.2
 
@@ -111,12 +128,14 @@ Source of truth: `docs/spec/Frothy_Language_Spec_v0_1.md`, sections 4.2, 4.3,
 
 Layer: `core`  
 Behavior: Mutates an existing place. A place is either a name or an indexed
-cells element. Missing places are an error.  
+cells element. On the current landed records surface, record fields are also
+valid places. Missing places are an error.  
 Example:
 
 ```frothy
 set counter to counter + 1
 set frame[0] to 99
+set point->x to 12
 ```
 
 Source of truth: `docs/spec/Frothy_Language_Spec_v0_1.md`, sections 4.4, 5.1,
@@ -165,6 +184,25 @@ buffer is cells(8)
 set buffer[0] to 42
 ```
 
+Worked example:
+
+```frothy
+levels is cells(3)
+set levels[0] to 20
+set levels[1] to 40
+set levels[2] to 60
+
+to average3 with values [
+  (values[0] + values[1] + values[2]) / 3
+]
+
+average3: levels
+```
+
+Use this shape when position is the real structure. `values[0]`, `values[1]`,
+and `values[2]` are three lanes in a fixed store, not three named fields on
+one record.
+
 Source of truth: `docs/spec/Frothy_Language_Spec_v0_1.md`, sections 3.8, 4.4,
 7.4
 
@@ -180,6 +218,30 @@ Example:
 ```frothy
 record Point [ x, y ]
 origin is Point: 0, 0
+```
+
+Worked example:
+
+```frothy
+record Sprite [ x, y, visible ]
+
+player is Sprite: 3, 4, true
+set player->x to player->x + 1
+set player->visible to false
+
+player->x
+player->visible
+```
+
+Use a record when the value represents one coherent thing with named parts.
+That is why `player->x` reads better than `player[0]`.
+
+Records may also be stored inside `Cells` on the current landed runtime:
+
+```frothy
+pixels is cells(2)
+set pixels[0] to Sprite: 1, 2, true
+pixels[0]->y
 ```
 
 Source of truth: `docs/adr/117-record-value-representation-and-persistence.md`,
@@ -204,6 +266,45 @@ to make-blink [
   ]
 ]
 ```
+
+Working shape:
+
+```frothy
+step is 1
+
+to makeStepper [
+  fn with x [ x + step ]
+]
+
+stepper is makeStepper:
+stepper: 41
+```
+
+This works because `step` is top-level.
+
+Rejected shape:
+
+```frothy
+to badMaker [
+  here step is 1;
+  fn with x [ x + step ]
+]
+```
+
+This fails because the returned `Code` would need to capture the local `step`.
+
+Rewrite it one of two ways:
+
+```frothy
+step is 1
+to goodMakerA [ fn with x [ x + step ] ]
+
+adder is fn with x, step [ x + step ]
+```
+
+`goodMakerA` is valid because `step` is top-level. `adder` shows the other
+rewrite: if the value is not top-level, pass it as an argument at call time
+instead of trying to smuggle it in through closure capture.
 
 Source of truth: `docs/spec/Frothy_Language_Spec_v0_1.md`, sections 3.7, 6.6
 
@@ -236,6 +337,22 @@ save
 restore
 dangerous.wipe
 ```
+
+Worked example:
+
+```frothy
+record Counter [ value ]
+counter is Counter: 0
+
+set counter->value to 1
+save
+set counter->value to 9
+restore
+counter->value
+```
+
+After `restore`, `counter->value` is back to `1`. The overlay state is what
+persists, not the last mutation you happened to make after saving.
 
 Source of truth: `docs/spec/Frothy_Language_Spec_v0_1.md`, sections 7.5, 7.6,
 7.7, 8.1

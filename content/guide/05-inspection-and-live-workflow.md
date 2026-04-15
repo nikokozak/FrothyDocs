@@ -27,6 +27,28 @@ What they are for:
 - `core @name` shows debug-oriented core rendering
 - `info @name` reports binding metadata such as owner, kind, and persistability
 
+Here is a more realistic pass:
+
+```frothy
+record Counter [ value ]
+counter is Counter: 2
+to counter.bump [ set counter->value to counter->value + 1 ]
+
+words
+show @counter
+show @counter.bump
+info @counter
+info @counter.bump
+```
+
+What you are looking for:
+
+- `words` should show both `counter` and `counter.bump`
+- `show @counter` should render the current record value
+- `show @counter.bump` should render the normalized code body
+- `info` should tell you which binding is an overlay value, what kind it is,
+  and whether it is persistable
+
 ## The Usual Loop
 
 A normal Frothy loop looks like this:
@@ -38,6 +60,28 @@ A normal Frothy loop looks like this:
 5. save only when the overlay is in a state worth keeping
 
 That loop is not a shortcut. It is the intended product surface.
+
+For example:
+
+```frothy
+record Cursor [ x, y ]
+cursor is Cursor: 0, 0
+to moveRight [ set cursor->x to cursor->x + 1 ]
+
+moveRight:
+show @cursor
+moveRight:
+show @cursor
+save
+```
+
+This is normal Frothy work:
+
+- define a small piece of state
+- define a small operation
+- run it immediately
+- inspect the actual live result
+- save only once the state is worth keeping
 
 ## Prompt Health
 
@@ -55,6 +99,20 @@ words
 info @boot
 show @boot
 ```
+
+If you think the wrong definition is live, add:
+
+```frothy
+show @yourName
+see @yourName
+info @yourName
+```
+
+That usually tells you whether the problem is:
+
+- the slot you rebound is not the slot you thought you changed
+- the current value is different from the source in your head
+- the binding is base-owned when you thought it was overlay-owned
 
 ## Inspection Is About The Image
 
