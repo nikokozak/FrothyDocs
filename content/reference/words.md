@@ -91,13 +91,16 @@ Source of truth: `docs/spec/Frothy_Language_Spec_v0_1.md`, sections 3.3, 3.4,
 
 Layer: `core`  
 Behavior: Creates a lexical local binding in the current block scope. Locals
-shadow outer locals and top-level names.  
+shadow outer locals and top-level names. Lookup always prefers the nearest
+reachable local before falling through to outer scopes and then the top level.  
 Example:
 
 ```frothy
-to twice with n [
-  here next is n + n;
-  next
+speed is 75
+
+to demo [
+  here speed is 10;
+  speed
 ]
 ```
 
@@ -181,6 +184,28 @@ origin is Point: 0, 0
 
 Source of truth: `docs/adr/117-record-value-representation-and-persistence.md`,
 `docs/guide/Frothy_From_The_Ground_Up.md`
+
+**`fn [ ... ]`, `fn with ... [ ... ]` non-capturing rule** *(core)*
+
+Layer: `core`  
+Behavior: A `Code` value may use its own parameters, locals it binds in its own
+body, and top-level names. It may not capture locals from an enclosing block or
+function.  
+Example:
+
+```frothy
+wait is 75
+
+to make-blink [
+  fn with pin [
+    gpio.high: pin;
+    ms: wait;
+    gpio.low: pin
+  ]
+]
+```
+
+Source of truth: `docs/spec/Frothy_Language_Spec_v0_1.md`, sections 3.7, 6.6
 
 ## Inspection and Persistence Built-Ins
 

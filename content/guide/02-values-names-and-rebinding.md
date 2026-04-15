@@ -28,6 +28,24 @@ speed is 120
 That is not "create a new variable named `speed`". It is "write a new value
 into the stable top-level slot named `speed`".
 
+If you ask for `speed`, you get whatever value that slot holds *now*.
+
+```frothy
+speed is 75
+speed
+```
+
+Now rebind it:
+
+```frothy
+speed is 120
+speed
+```
+
+The name stayed the same. The slot stayed the same. The current value changed.
+That distinction matters because Frothy expects you to redefine code and data
+while the image is live.
+
 ## Lookup Order
 
 Frothy resolves names in this order:
@@ -49,6 +67,88 @@ to demo [
 
 Inside `demo`, `speed` means the local binding, not the top-level slot.
 
+It helps to see the lookup step by step:
+
+```frothy
+speed is 75
+
+to demo [
+  here speed is 10;
+  speed
+]
+
+demo:
+```
+
+When `demo` runs:
+
+1. the block creates a lexical scope
+2. `here speed is 10` creates a local called `speed`
+3. the final `speed` expression looks for a local first
+4. it finds the local `speed`, so lookup stops there
+
+The result is `10`, not `75`.
+
+Now remove the local:
+
+```frothy
+speed is 75
+
+to demo [
+  speed
+]
+
+demo:
+```
+
+This time there is no local `speed`, so lookup falls through to the top-level
+slot and the result is `75`.
+
+## Nested Scope
+
+The same rule applies to nested blocks.
+
+```frothy
+speed is 75
+
+to probe [
+  here speed is 10;
+  if true [
+    here speed is 3;
+    speed
+  ] else [
+    0
+  ]
+]
+```
+
+When the inner block asks for `speed`, it finds the innermost local first. The
+result is `3`.
+
+If that inner block uses a different local name instead:
+
+```frothy
+speed is 75
+
+to probe [
+  here speed is 10;
+  if true [
+    here brightness is 3;
+    speed
+  ] else [
+    0
+  ]
+]
+```
+
+then `speed` resolves to the outer local and the result is `10`.
+
+That is the whole lookup story:
+
+- nearest local wins
+- then enclosing locals
+- then top level
+
 ## Rebinding Is A Feature, Not A Smell
 
 Rebinding is central to the live workflow. If you redefine a top-level code
@@ -65,6 +165,21 @@ flash:
 This is one of Frothy's defining properties: the live image can evolve without
 pretending every change is a fresh upload cycle.
 
+The same thing holds when one word calls another:
+
+```frothy
+to blink-fast [ led.blink: 1, 40 ]
+to signal [ blink-fast: ]
+
+signal:
+
+to blink-fast [ led.blink: 3, 90 ]
+signal:
+```
+
+`signal` was not rewritten. It still resolves `blink-fast` through that stable
+top-level slot, so it immediately sees the new behavior.
+
 ## Base Image Versus Overlay
 
 The running image has two conceptual layers:
@@ -74,6 +189,16 @@ The running image has two conceptual layers:
 
 Base-image names such as `gpio.write` or `matrix.init` can be shadowed by an
 overlay rebind, but `dangerous.wipe` restores the boot-rebuilt base value.
+
+That means you are free to experiment:
+
+```frothy
+to blink [ 99 ]
+blink:
+dangerous.wipe
+```
+
+After `dangerous.wipe`, the base image is authoritative again.
 
 ## Values Frothy Does Not Expose
 
