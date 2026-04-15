@@ -83,9 +83,8 @@ This stays readable because nothing is hidden:
 
 ## `Cells`
 
-`Cells` is the fixed-size mutable indexed store in Frothy. In the accepted
-`v0.1` spec it is the only collection value, and `cells(n)` is only valid in a
-top-level rebinding form.
+`Cells` is the fixed-size mutable indexed store in Frothy. Use `cells(n)` at
+top level to create a fixed store you can reuse and update.
 
 ```frothy
 frame is cells(8)
@@ -94,7 +93,7 @@ set frame[1] to true
 ```
 
 Elements begin as `nil`. The safe mental model is still "small fixed indexed
-storage", but the current landed runtime also allows record values in cells.
+storage", and record values also work inside cells.
 
 For plain counted storage, keep it simple:
 
@@ -134,11 +133,7 @@ If you keep forgetting what index `2` means, you probably want records.
 
 ## Records
 
-The accepted `docs/spec/Frothy_Language_Spec_v0_1.md` still describes `Cells`
-as the only collection value, but the current landed Frothy runtime and guide
-also include records through `docs/adr/117-record-value-representation-and-persistence.md`.
-
-That means the current public surface supports:
+Frothy also supports records:
 
 ```frothy
 record Point [ x, y ]
@@ -276,8 +271,7 @@ Use both when:
 
 - you want a fixed indexed container full of shaped values
 
-Treat records on this site as the current landed runtime surface, with the ADR
-and guide as the source of truth until the accepted core spec is folded
-forward.
+Records are part of the language you can use directly on the board and in the
+prompt.
 
 Next: [Inspection and the live workflow](/guide/05-inspection-and-live-workflow/).

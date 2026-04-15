@@ -33,7 +33,7 @@ because the base image can still rebuild the same slot set.
 ## `Code` Is Lexical And Non-Capturing
 
 Frothy `Code` values use lexical name resolution and do not capture outer
-locals in the accepted `v0.1` core model.
+locals.
 
 That sounds like a restriction, but it is one of the reasons the image,
 persistence, and inspection story stays small and legible.

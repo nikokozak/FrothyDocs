@@ -6,6 +6,9 @@ description: "Exact behavior, public surface details, and maintained board-libra
 
 Use the reference when you need the exact surface rather than the teaching arc.
 
+If you want the board as a first-time user rather than as a reference reader,
+start with [Machine](/machine/).
+
 The main sections are:
 
 - [Word reference](/reference/words/) for syntax, operators, locals, `Cells`,

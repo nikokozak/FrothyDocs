@@ -22,9 +22,6 @@ counter is 0
 counter is counter + 1
 ```
 
-Source of truth: `docs/spec/Frothy_Language_Spec_v0_1.md`, sections 4.3, 5.1,
-7.2
-
 **`to name [ ... ]`, `to name with a, b [ ... ]`** *(core)*
 
 Layer: `core`  
@@ -40,8 +37,6 @@ to blink with pin, wait [
 ]
 ```
 
-Source of truth: `docs/spec/Frothy_Language_Spec_v0_1.md`, section 5.1
-
 ## Calls and Operators
 
 **`callee: arg1, arg2`** *(core call syntax)*
@@ -56,8 +51,6 @@ blink: LED_BUILTIN, 75
 gpio.write: LED_BUILTIN, 1
 ```
 
-Source of truth: `docs/spec/Frothy_Language_Spec_v0_1.md`, sections 5.3, 6.3
-
 **`call expr with ...`** *(core call syntax)*
 
 Layer: `core`  
@@ -69,8 +62,6 @@ Example:
 call chooseAction: with
 ```
 
-Source of truth: `docs/spec/Frothy_Language_Spec_v0_1.md`, section 5.3
-
 **`* / % + - < <= > >= == != and or`** *(core operators)*
 
 Layer: `core`  
@@ -81,9 +72,6 @@ Example:
 ```frothy
 (adc.percent: A0) > 50 and enabled
 ```
-
-Source of truth: `docs/spec/Frothy_Language_Spec_v0_1.md`, sections 3.3, 3.4,
-5.3, 6.1
 
 ## Locals and Mutation
 
@@ -121,15 +109,12 @@ to nested [
 The result is `3`, not `10` and not `75`, because the innermost reachable local
 wins.
 
-Source of truth: `docs/spec/Frothy_Language_Spec_v0_1.md`, sections 4.2, 4.3,
-5.2
-
 **`set place to expr`** *(core)*
 
 Layer: `core`  
 Behavior: Mutates an existing place. A place is either a name or an indexed
-cells element. On the current landed records surface, record fields are also
-valid places. Missing places are an error.  
+cells element. Record fields are also valid places. Missing places are an
+error.  
 Example:
 
 ```frothy
@@ -137,9 +122,6 @@ set counter to counter + 1
 set frame[0] to 99
 set point->x to 12
 ```
-
-Source of truth: `docs/spec/Frothy_Language_Spec_v0_1.md`, sections 4.4, 5.1,
-5.2
 
 ## Control Flow
 
@@ -154,9 +136,6 @@ Example:
 when adc.percent: A0 > 50 [ led.on: ]
 ```
 
-Source of truth: `docs/spec/Frothy_Language_Spec_v0_1.md`, sections 3.4, 5.3,
-6.4
-
 **`while`, `repeat`, `repeat ... as name`** *(core)*
 
 Layer: `core`  
@@ -168,15 +147,13 @@ Example:
 repeat 4 as i [ led.blink: i + 1, 30 ]
 ```
 
-Source of truth: `docs/spec/Frothy_Language_Spec_v0_1.md`, sections 5.3, 6.5
-
 ## Structured Data
 
 **`cells(n)`, `expr[index]`** *(core)*
 
 Layer: `core`  
-Behavior: `Cells` is the narrow fixed-size mutable indexed store. In the
-accepted `v0.1` spec, `cells(n)` is only valid in a top-level rebinding form.  
+Behavior: `Cells` is the narrow fixed-size mutable indexed store. Use `cells(n)`
+at top level to create a fixed store you can read and update by index.  
 Example:
 
 ```frothy
@@ -203,16 +180,11 @@ Use this shape when position is the real structure. `values[0]`, `values[1]`,
 and `values[2]` are three lanes in a fixed store, not three named fields on
 one record.
 
-Source of truth: `docs/spec/Frothy_Language_Spec_v0_1.md`, sections 3.8, 4.4,
-7.4
-
-**`record Name [ field, ... ]`, `Name: ...`** *(current landed runtime surface)*
+**`record Name [ field, ... ]`, `Name: ...`** *(core)*
 
 Layer: `core`  
 Behavior: Declares a fixed-layout record definition and uses the generated
-constructor slot to create shaped values. This surface is implemented and
-accepted via ADR-117, even though the older accepted `v0.1` spec has not yet
-been folded forward to enumerate records.  
+constructor slot to create shaped values.  
 Example:
 
 ```frothy
@@ -236,16 +208,13 @@ player->visible
 Use a record when the value represents one coherent thing with named parts.
 That is why `player->x` reads better than `player[0]`.
 
-Records may also be stored inside `Cells` on the current landed runtime:
+Records may also be stored inside `Cells`:
 
 ```frothy
 pixels is cells(2)
 set pixels[0] to Sprite: 1, 2, true
 pixels[0]->y
 ```
-
-Source of truth: `docs/adr/117-record-value-representation-and-persistence.md`,
-`docs/guide/Frothy_From_The_Ground_Up.md`
 
 **`fn [ ... ]`, `fn with ... [ ... ]` non-capturing rule** *(core)*
 
@@ -306,8 +275,6 @@ adder is fn with x, step [ x + step ]
 rewrite: if the value is not top-level, pass it as an argument at call time
 instead of trying to smuggle it in through closure capture.
 
-Source of truth: `docs/spec/Frothy_Language_Spec_v0_1.md`, sections 3.7, 6.6
-
 ## Inspection and Persistence Built-Ins
 
 **`words`, `show @name`, `see @name`, `core @name`, `info @name`** *(interactive base image)*
@@ -322,8 +289,6 @@ words
 info @blink
 see @blink
 ```
-
-Source of truth: `docs/spec/Frothy_Language_Spec_v0_1.md`, section 8.4
 
 **`save`, `restore`, `dangerous.wipe`** *(interactive base image)*
 
@@ -353,6 +318,3 @@ counter->value
 
 After `restore`, `counter->value` is back to `1`. The overlay state is what
 persists, not the last mutation you happened to make after saving.
-
-Source of truth: `docs/spec/Frothy_Language_Spec_v0_1.md`, sections 7.5, 7.6,
-7.7, 8.1

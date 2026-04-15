@@ -21,8 +21,6 @@ froth --version
 froth doctor
 ```
 
-Source of truth: `README.md` in the Frothy repo, "Naming Matrix"
-
 ## Core Commands
 
 **`froth doctor`** *(CLI)*
@@ -37,8 +35,6 @@ froth doctor
 froth --port <path> doctor
 ```
 
-Source of truth: `README.md`; `docs/guide/Frothy_Workshop_Install_Quickstart.md`
-
 **`froth connect`** *(CLI)*
 
 Layer: `core`  
@@ -49,8 +45,6 @@ Example:
 ```sh
 froth --port <path> connect
 ```
-
-Source of truth: `README.md`; `docs/guide/Frothy_Workshop_Quick_Reference.md`
 
 **`froth send`** *(CLI)*
 
@@ -63,8 +57,6 @@ Example:
 froth send src/main.froth
 ```
 
-Source of truth: `README.md`
-
 **`froth build`** *(CLI)*
 
 Layer: `core`  
@@ -75,8 +67,6 @@ Example:
 ```sh
 froth build
 ```
-
-Source of truth: `README.md`
 
 **`froth flash`** *(CLI)*
 
@@ -89,8 +79,6 @@ Example:
 ```sh
 froth --port <path> flash
 ```
-
-Source of truth: `README.md`; `boards/esp32-devkit-v1/WORKSHOP.md`
 
 ## Maintained Paths
 
@@ -107,5 +95,3 @@ make build
 make test
 make test-publishability
 ```
-
-Source of truth: `README.md`; `docs/guide/Frothy_Workshop_Clean_Machine_Validation.md`

@@ -16,3 +16,7 @@ Frothy's maintained hardware surface is layered:
 This first public cut treats the TM1629-based `esp32-devkit-v4-game-board` as
 the protoboard target while still documenting the shared base-image board
 surface underneath it.
+
+If you want the applied board docs first, use [Machine](/machine/). That
+section teaches the Froth Machine as a board you can draw on and play with,
+while Hardware stays focused on exact surface details.

@@ -22,8 +22,6 @@ ms: 250
 adc.read: A0
 ```
 
-Source of truth: `docs/adr/108-frothy-ffi-boundary.md`; `docs/spec/Frothy_Language_Spec_v0_1.md`, section 9
-
 **`allowed value classes`** *(FFI)*
 
 Layer: `FFI`  
@@ -35,8 +33,6 @@ Example:
 ```text
 An FFI call may return an integer uptime, a boolean pin state, nil, or a text value. It must not expose a raw pointer as an ordinary Frothy value.
 ```
-
-Source of truth: `docs/adr/108-frothy-ffi-boundary.md`
 
 ## Project and Board Paths
 
@@ -53,8 +49,6 @@ sources = ["src/ffi/bindings.c"]
 includes = ["src/ffi"]
 ```
 
-Source of truth: `docs/guide/Frothy_From_The_Ground_Up.md`, "Creating Project FFI in Practice"
-
 **`board FFI`** *(FFI)*
 
 Layer: `FFI`  
@@ -66,8 +60,6 @@ Example:
 ```text
 `boards/<board>/ffi.c`, `ffi.h`, `board.json`, and `lib/base.frothy` together define the board path.
 ```
-
-Source of truth: `docs/guide/Frothy_From_The_Ground_Up.md`, "Creating Board FFI in the Repo"; `docs/adr/119-tm1629-board-base-surface-and-registry.md`
 
 ## Persistence Boundary
 
@@ -82,5 +74,3 @@ Example:
 ```text
 Saving the image preserves your top-level overlay, not the internal C state of a device driver.
 ```
-
-Source of truth: `docs/adr/108-frothy-ffi-boundary.md`; `docs/spec/Frothy_Language_Spec_v0_1.md`, sections 7.5, 9

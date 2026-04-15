@@ -21,8 +21,6 @@ Example:
 1 + 1
 ```
 
-Source of truth: `docs/spec/Frothy_Language_Spec_v0_1.md`, section 8.2
-
 **`multiline input`** *(interactive profile)*
 
 Layer: `core`  
@@ -38,8 +36,6 @@ to blink with pin [
 ]
 ```
 
-Source of truth: `docs/spec/Frothy_Language_Spec_v0_1.md`, section 8.2
-
 ## Interrupts and Recovery
 
 **`Ctrl-C`** *(interactive profile)*
@@ -54,8 +50,6 @@ Example:
 Press Ctrl-C during a loop or during multiline entry.
 ```
 
-Source of truth: `docs/spec/Frothy_Language_Spec_v0_1.md`, section 8.3
-
 **`safe boot`** *(interactive profile)*
 
 Layer: `core`  
@@ -66,9 +60,6 @@ Example:
 ```text
 Press Ctrl-C during the safe-boot window, then inspect `boot` and run `dangerous.wipe` if needed.
 ```
-
-Source of truth: `docs/spec/Frothy_Language_Spec_v0_1.md`, sections 7.8, 8.3;
-`docs/guide/Frothy_Workshop_Quick_Reference.md`
 
 ## Inspection Commands
 
@@ -86,8 +77,6 @@ show @boot
 info @matrix.init
 ```
 
-Source of truth: `docs/spec/Frothy_Language_Spec_v0_1.md`, section 8.4
-
 ## Structured Tooling Sessions
 
 **`.control`** *(control session)*
@@ -102,8 +91,6 @@ Example:
 The host tool opens the port, acquires the prompt, sends `.control`, and then uses framed control messages.
 ```
 
-Source of truth: `docs/adr/110-single-owner-control-session-transport.md`
-
 **`extension-owned helper session`** *(editor path)*
 
 Layer: `core`  
@@ -115,5 +102,3 @@ Example:
 ```text
 VS Code connect, send line, send file, interrupt, and simple inspection all ride on the helper-owned control session.
 ```
-
-Source of truth: `docs/adr/111-vscode-extension-owned-control-session.md`

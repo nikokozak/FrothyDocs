@@ -44,7 +44,7 @@ wipe it.
 
 ## Base Image Recovery
 
-Base-image names are the recovery source of truth. If you shadow a base name in
+Base-image names are the recovery anchor. If you shadow a base name in
 the overlay and later call `dangerous.wipe`, the boot-rebuilt base value wins.
 
 That rule is what lets Frothy keep rebinding flexible without making recovery

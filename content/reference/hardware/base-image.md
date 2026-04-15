@@ -23,9 +23,6 @@ gpio.output: LED_BUILTIN
 adc.read: A0
 ```
 
-Source of truth: `boards/esp32-devkit-v1/board.json`;
-`boards/esp32-devkit-v4-game-board/board.json`
-
 ## Timing and GPIO Primitives
 
 **`millis`, `ms`, `gpio.mode`, `gpio.write`, `gpio.read`** *(base image)*
@@ -43,9 +40,6 @@ gpio.read: LED_BUILTIN
 ms: 75
 ```
 
-Source of truth: `docs/adr/117-workshop-base-image-board-library-surface.md`;
-`docs/spec/Frothy_Language_Spec_v0_1.md`, section 9
-
 ## Base-Library Helpers
 
 **`gpio.input`, `gpio.output`, `gpio.high`, `gpio.low`, `gpio.toggle`** *(board library)*
@@ -60,9 +54,6 @@ gpio.output: LED_BUILTIN
 gpio.toggle: LED_BUILTIN
 ```
 
-Source of truth: `boards/esp32-devkit-v1/lib/base.frothy`;
-`boards/esp32-devkit-v4-game-board/lib/base.frothy`
-
 **`blink`, `animate`** *(board library)*
 
 Layer: `board library`  
@@ -75,9 +66,6 @@ Example:
 blink: LED_BUILTIN, 3, 75
 animate: 8, 40, fn with i [ led.toggle: ]
 ```
-
-Source of truth: `boards/esp32-devkit-v1/lib/base.frothy`;
-`docs/adr/117-workshop-base-image-board-library-surface.md`
 
 ## LED and ADC Helpers
 
@@ -92,9 +80,6 @@ led.on:
 led.blink: 3, 75
 ```
 
-Source of truth: `boards/esp32-devkit-v1/lib/base.frothy`;
-`boards/esp32-devkit-v4-game-board/lib/base.frothy`
-
 **`adc.read`, `adc.max`, `adc.percent`** *(base image / board library)*
 
 Layer: `base image`  
@@ -106,6 +91,3 @@ Example:
 adc.read: A0
 adc.percent: A0
 ```
-
-Source of truth: `boards/esp32-devkit-v1/lib/base.frothy`;
-`boards/esp32-devkit-v4-game-board/lib/base.frothy`

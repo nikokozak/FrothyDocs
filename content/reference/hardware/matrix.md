@@ -23,8 +23,6 @@ matrix.clear:
 matrix.show:
 ```
 
-Source of truth: `boards/esp32-devkit-v4-game-board/lib/base.frothy`
-
 ## Drawing Surface
 
 **`matrix.width`, `matrix.height`, `matrix.pixel@`, `matrix.pixel!`, `matrix.line`, `matrix.rect`, `matrix.fillRect`** *(board library)*
@@ -40,9 +38,6 @@ matrix.line: 0, 0, 11, 7, false
 matrix.show:
 ```
 
-Source of truth: `boards/esp32-devkit-v4-game-board/lib/base.frothy`;
-`docs/adr/119-tm1629-board-base-surface-and-registry.md`
-
 ## Scope Boundary
 
 **`matrix.*` only** *(board library)*
@@ -56,5 +51,3 @@ Example:
 ```text
 Reach for `matrix.*` first when teaching or learning the protoboard display.
 ```
-
-Source of truth: planning decision for FrothyDocs v1; `boards/esp32-devkit-v4-game-board/lib/base.frothy`

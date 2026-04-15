@@ -1,6 +1,6 @@
 ---
 title: "10. Where to Go Next"
-description: "Move from the guide into the reference, the board surface, and the authoritative Frothy docs."
+description: "Move from the guide into the reference and the board surface."
 weight: 10
 ---
 
@@ -17,6 +17,8 @@ After the guide, the next stop depends on what you are trying to do.
 
 ## If You Are Building For Hardware
 
+- [Machine](/machine/) for the Froth Machine as a board you can actually draw
+  on, control, and build small games on
 - [CLI reference](/reference/cli/) for the maintained command surface
 - [Hardware overview](/reference/hardware/) for the layered board story
 - [Base-image board reference](/reference/hardware/base-image/) for
@@ -27,17 +29,5 @@ After the guide, the next stop depends on what you are trying to do.
 
 ## If You Are Extending Frothy
 
-- [FFI reference](/reference/ffi/) for the accepted boundary and the project
+- [FFI reference](/reference/ffi/) for the FFI boundary and the project
   versus board split
-
-## If You Need The Authority Docs
-
-The Frothy repo remains canonical for semantics and accepted decisions. The
-main public sources are:
-
-- `docs/spec/Frothy_Language_Spec_v0_1.md`
-- Frothy ADRs in `docs/adr/100-*.md`
-- `docs/roadmap/Frothy_Development_Roadmap_v0_1.md`
-
-This site is the public learning and reference layer over that material, not a
-second competing source of truth.

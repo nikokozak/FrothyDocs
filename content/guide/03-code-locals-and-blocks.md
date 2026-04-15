@@ -106,7 +106,7 @@ scope, Frothy signals an error instead of creating it silently.
 
 ## Non-Capturing `Code`
 
-In `v0.1`, `Code` does not capture outer locals. A function body may use:
+`Code` does not capture outer locals. A function body may use:
 
 - its parameters
 - names it binds inside its own body

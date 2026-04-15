@@ -30,8 +30,6 @@ message is "draft"
 Here `pulse` and `message` live in the overlay. `led.on` remains a base-image
 name even when your overlay code calls it.
 
-Source of truth: `docs/spec/Frothy_Language_Spec_v0_1.md`, section 7.1
-
 **`rebinding and base-name shadowing`** *(image model)*
 
 Layer: `core`  
@@ -58,8 +56,6 @@ show @blink
 The first and third `show @blink` come from the base image. The middle one is
 your overlay shadowing that same stable slot name.
 
-Source of truth: `docs/spec/Frothy_Language_Spec_v0_1.md`, sections 7.2, 7.3
-
 ## Persistence Operations
 
 **`save`** *(interactive base image)*
@@ -83,8 +79,6 @@ save
 
 What is saved here is the overlay slot `cursor` plus the persistable record
 value it owns.
-
-Source of truth: `docs/spec/Frothy_Language_Spec_v0_1.md`, section 7.5
 
 **`restore`** *(interactive base image)*
 
@@ -110,8 +104,6 @@ cursor->x
 
 After `restore`, `cursor->x` is back to `2`.
 
-Source of truth: `docs/spec/Frothy_Language_Spec_v0_1.md`, section 7.6
-
 **`dangerous.wipe`** *(interactive base image)*
 
 Layer: `core`  
@@ -135,8 +127,6 @@ session
 
 After `dangerous.wipe`, reading `session` is an error because both the live and
 saved overlay copies are gone.
-
-Source of truth: `docs/spec/Frothy_Language_Spec_v0_1.md`, section 7.7
 
 ## Boot and Recovery
 
@@ -168,8 +158,6 @@ save
 On the next restore path, `boot` runs before the prompt and can finish that
 small startup step.
 
-Source of truth: `docs/spec/Frothy_Language_Spec_v0_1.md`, section 7.8
-
 **`safe boot`** *(recovery surface)*
 
 Layer: `core`  
@@ -189,5 +177,3 @@ Typical recovery flow:
 3. Run `show @boot` or `info @boot`.
 4. Fix the bad slot, or run `dangerous.wipe`.
 ```
-
-Source of truth: `docs/spec/Frothy_Language_Spec_v0_1.md`, sections 7.8, 8.3

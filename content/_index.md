@@ -51,11 +51,17 @@ hardware. The first public protoboard target on this site is the TM1629-based
 `esp32-devkit-v4-game-board`, with the shared base-image board library
 documented underneath it.
 
+On this site, that protoboard is introduced as the [Froth Machine](/machine/):
+the display, joystick, knobs, and small game-shaped workflow you can learn in a
+workshop without reading low-level board reference first.
+
 ## Start Here
 
 - [Install Frothy](/install/) for the maintained CLI, VS Code, and board path.
 - [Read the guide](/guide/) for the language and workflow from first
   principles.
+- [Explore the Machine](/machine/) for the Froth Machine board, its words, its
+  controls, and its first games.
 - [Use the reference](/reference/) when you need exact behavior or library
   surface details.
 - [Read how Frothy differs](/what-makes-frothy-different/) for the breaks from

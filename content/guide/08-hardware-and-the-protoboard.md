@@ -1,10 +1,24 @@
 ---
 title: "08. Hardware and the Protoboard"
-description: "Start with the shared base-image surface, then move up to the TM1629 protoboard layers."
+description: "Start with the Froth Machine front door, then drop into the lower-level board layers when needed."
 weight: 8
 ---
 
 Frothy's hardware story is layered.
+
+As a first-time board user, do not start by memorizing the low-level display
+stack. Start with the [Machine](/machine/) section instead.
+
+That section teaches the Froth Machine the way most people actually encounter
+it:
+
+- a 12x8 display
+- a joystick with click
+- two knobs
+- a few drawing words
+- a small game-shaped workflow
+
+Then come back here when you want to understand how the layers fit together.
 
 Start with the shared base-image words such as `millis`, `gpio.*`, `ms`,
 `blink`, `led.*`, and `adc.percent`. Then move up to board-specific layers.
@@ -48,14 +62,7 @@ matrix.show:
 That code is already in the right shape for the protoboard: initialize the
 display, mutate the framebuffer, then flush it.
 
-## What This Site Covers In v1
-
-This first site cut documents:
-
-- the shared base-image board surface
-- the TM1629 raw and high-level display surface
-- the teaching-layer `matrix.*` display API
-
-It does not try to fully document the broader workshop/game stack yet.
+For friendlier board-first examples such as joystick input, knob control,
+Game of Life, and Pong, go straight to [Machine](/machine/).
 
 Next: [Extending Frothy with FFI](/guide/09-extending-with-ffi/).
