@@ -59,7 +59,7 @@ That means a local can shadow a top-level slot:
 ```frothy
 speed is 75
 
-to demo [
+demo is fn [
   here speed is 10;
   speed
 ]
@@ -72,7 +72,7 @@ It helps to see the lookup step by step:
 ```frothy
 speed is 75
 
-to demo [
+demo is fn [
   here speed is 10;
   speed
 ]
@@ -94,7 +94,7 @@ Now remove the local:
 ```frothy
 speed is 75
 
-to demo [
+demo is fn [
   speed
 ]
 
@@ -111,7 +111,7 @@ The same rule applies to nested blocks.
 ```frothy
 speed is 75
 
-to probe [
+probe is fn [
   here speed is 10;
   if true [
     here speed is 3;
@@ -130,7 +130,7 @@ If that inner block uses a different local name instead:
 ```frothy
 speed is 75
 
-to probe [
+probe is fn [
   here speed is 10;
   if true [
     here brightness is 3;
@@ -155,10 +155,10 @@ Rebinding is central to the live workflow. If you redefine a top-level code
 slot, callers that resolve through that slot observe the new behavior.
 
 ```frothy
-to flash [ led.blink: 1, 75 ]
+flash is fn [ led.blink: 1, 75 ]
 flash:
 
-to flash [ led.blink: 3, 40 ]
+flash is fn [ led.blink: 3, 40 ]
 flash:
 ```
 
@@ -168,12 +168,12 @@ pretending every change is a fresh upload cycle.
 The same thing holds when one word calls another:
 
 ```frothy
-to blink-fast [ led.blink: 1, 40 ]
-to signal [ blink-fast: ]
+blink-fast is fn [ led.blink: 1, 40 ]
+signal is fn [ blink-fast: ]
 
 signal:
 
-to blink-fast [ led.blink: 3, 90 ]
+blink-fast is fn [ led.blink: 3, 90 ]
 signal:
 ```
 
@@ -193,7 +193,7 @@ overlay rebind, but `dangerous.wipe` restores the boot-rebuilt base value.
 That means you are free to experiment:
 
 ```frothy
-to blink [ 99 ]
+blink is fn [ 99 ]
 blink:
 dangerous.wipe
 ```

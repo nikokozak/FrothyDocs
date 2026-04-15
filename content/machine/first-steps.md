@@ -93,7 +93,7 @@ to scaleKnob with percent, max [
   percent * max / 100
 ]
 
-to cursor.frame [
+cursor.frame is fn [
   here x is scaleKnob: knob.left:, (grid.width - 1);
   here y is scaleKnob: knob.right:, (grid.height - 1);
   grid.clear:;

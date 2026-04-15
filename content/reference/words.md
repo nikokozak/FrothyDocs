@@ -22,14 +22,17 @@ counter is 0
 counter is counter + 1
 ```
 
-**`to name [ ... ]`, `to name with a, b [ ... ]`** *(core)*
+**`name is fn [ ... ]`, `to name with a, b [ ... ]`** *(core)*
 
 Layer: `core`  
-Behavior: Sugar for binding a top-level slot to a zero-arity or fixed-arity
-`Code` value.  
+Behavior: Binds a stable top-level slot to a `Code` value. The docs usually
+write zero-argument words as `name is fn [ ... ]` and use `to ... with ...`
+when the name and arguments read naturally together.  
 Example:
 
 ```frothy
+boot is fn [ led.on: ]
+
 to blink with pin, wait [
   gpio.high: pin;
   ms: wait;
@@ -59,7 +62,7 @@ Useful when the callee itself is selected at runtime.
 Example:
 
 ```frothy
-call chooseAction: with
+call pickAction: with
 ```
 
 **`* / % + - < <= > >= == != and or`** *(core operators)*
@@ -86,7 +89,7 @@ Example:
 ```frothy
 speed is 75
 
-to demo [
+demo is fn [
   here speed is 10;
   speed
 ]
@@ -97,7 +100,7 @@ Worked example:
 ```frothy
 speed is 75
 
-to nested [
+nested is fn [
   here speed is 10;
   when true [
     here speed is 3;
@@ -227,7 +230,7 @@ Example:
 ```frothy
 wait is 75
 
-to make-blink [
+make-blink is fn [
   fn with pin [
     gpio.high: pin;
     ms: wait;
@@ -241,11 +244,11 @@ Working shape:
 ```frothy
 step is 1
 
-to makeStepper [
+make-stepper is fn [
   fn with x [ x + step ]
 ]
 
-stepper is makeStepper:
+stepper is make-stepper:
 stepper: 41
 ```
 
@@ -254,7 +257,7 @@ This works because `step` is top-level.
 Rejected shape:
 
 ```frothy
-to badMaker [
+make-local-stepper is fn [
   here step is 1;
   fn with x [ x + step ]
 ]
@@ -266,14 +269,14 @@ Rewrite it one of two ways:
 
 ```frothy
 step is 1
-to goodMakerA [ fn with x [ x + step ] ]
+make-shared-stepper is fn [ fn with x [ x + step ] ]
 
 adder is fn with x, step [ x + step ]
 ```
 
-`goodMakerA` is valid because `step` is top-level. `adder` shows the other
-rewrite: if the value is not top-level, pass it as an argument at call time
-instead of trying to smuggle it in through closure capture.
+`make-shared-stepper` is valid because `step` is top-level. `adder` shows the
+other rewrite: if the value is not top-level, pass it as an argument at call
+time instead of trying to smuggle it in through closure capture.
 
 ## Inspection and Persistence Built-Ins
 

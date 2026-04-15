@@ -23,7 +23,7 @@ Example:
 Worked example:
 
 ```frothy
-to pulse [ led.on: ]
+pulse is fn [ led.on: ]
 message is "draft"
 ```
 
@@ -39,7 +39,7 @@ boot-rebuilt base value.
 Example:
 
 ```frothy
-to blink [ 99 ]
+blink is fn [ 99 ]
 dangerous.wipe
 ```
 
@@ -47,7 +47,7 @@ Worked example:
 
 ```frothy
 show @blink
-to blink [ "temporary overlay version" ]
+blink is fn [ "temporary overlay version" ]
 show @blink
 dangerous.wipe
 show @blink
@@ -138,7 +138,7 @@ entering the prompt.
 Example:
 
 ```frothy
-to boot [ led.on: ]
+boot is fn [ led.on: ]
 ```
 
 Worked example:
@@ -147,7 +147,7 @@ Worked example:
 record State [ ready ]
 state is State: false
 
-to boot [
+boot is fn [
   set state->ready to true;
   led.on:
 ]

@@ -60,7 +60,7 @@ to scaleKnob with percent, max [
   percent * max / 100
 ]
 
-to dot.frame [
+dot.frame is fn [
   here x is scaleKnob: knob.left:, (grid.width - 1);
   here y is scaleKnob: knob.right:, (grid.height - 1);
   grid.clear:;
@@ -97,7 +97,7 @@ If you want a boolean helper, write one exactly the way the joystick helpers
 work:
 
 ```frothy
-to button.two? [
+button.two? is fn [
   gpio.input: BUTTON_2;
   (gpio.read: BUTTON_2) == 0
 ]

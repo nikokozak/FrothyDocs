@@ -21,27 +21,27 @@ player.x is 5
 player.y is 3
 frame.ms is 60
 
-to game.setup [
+game.setup is fn [
   matrix.init:;
   matrix.brightness!: 0;
   set player.x to 5;
   set player.y to 3
 ]
 
-to game.update [
+game.update is fn [
   when joy.left?:  [ set player.x to player.x - 1 ];
   when joy.right?: [ set player.x to player.x + 1 ];
   when joy.up?:    [ set player.y to player.y - 1 ];
   when joy.down?:  [ set player.y to player.y + 1 ]
 ]
 
-to game.draw [
+game.draw is fn [
   grid.clear:;
   grid.set: player.x, player.y, true;
   grid.show:
 ]
 
-to game.frame [
+game.frame is fn [
   game.update:;
   game.draw:;
   ms: frame.ms

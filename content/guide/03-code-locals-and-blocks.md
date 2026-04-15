@@ -9,9 +9,12 @@ pass it around, and call it with ordinary syntax.
 
 ## Named Code
 
-Top-level definitions use `to` sugar:
+Top-level code is still just a stable slot holding a `Code` value. The docs
+mostly use two surface styles:
 
 ```frothy
+boot is fn [ led.on: ]
+
 to pulse with pin, wait [
   gpio.high: pin;
   ms: wait;
@@ -19,8 +22,16 @@ to pulse with pin, wait [
 ]
 ```
 
-This is shorthand for binding a top-level slot to a `Code` value with fixed
-arity.
+A small house style keeps examples easy to read:
+
+- use `name is fn [ ... ]` for zero-argument words or names that feel like labels
+- use `to name with ... [ ... ]` when the name and arguments read like a short sentence
+
+A zero-argument `to name [ ... ]` form is valid too, but these docs usually
+reserve `to` for the sentence-shaped form.
+
+Both definitions above end in the same place: a stable top-level slot holding
+callable `Code`.
 
 If you call `pulse`, Frothy looks up the top-level slot named `pulse`, finds a
 `Code` value there, and runs it. That is the same lookup story you saw in the
@@ -122,7 +133,7 @@ This works:
 ```frothy
 unit is 75
 
-to make-blink [
+make-blink is fn [
   fn with pin [
     gpio.high: pin;
     ms: unit;
@@ -164,7 +175,7 @@ First: move the shared value to top level if it is truly shared configuration.
 ```frothy
 wait is 75
 
-to make-blink [
+make-blink is fn [
   fn with pin [
     gpio.high: pin;
     ms: wait;
@@ -192,7 +203,7 @@ visible.
 An inner `fn` may still create and use locals *inside itself*:
 
 ```frothy
-to counter-stepper [
+counter-stepper is fn [
   fn with n [
     here next is n + 1;
     next
@@ -209,7 +220,7 @@ One more example makes the non-capturing rule clearer.
 ```frothy
 scale is 10
 
-to build [
+make-scaler is fn [
   here scale is 3;
   fn with n [
     n * scale
@@ -219,10 +230,10 @@ to build [
 
 The question is: which `scale` should the inner `fn` mean?
 
-If Frothy allowed capture, the answer would be "the local `scale` from `build`".
-Frothy does not allow that. The inner function may only use its own locals,
-its parameters, and top-level names. So this shape is rejected instead of
-quietly creating a hidden closure.
+If Frothy allowed capture, the answer would be "the local `scale` from
+`make-scaler`". Frothy does not allow that. The inner function may only use
+its own locals, its parameters, and top-level names. So this shape is rejected
+instead of quietly creating a hidden closure.
 
 That is the design tradeoff: a smaller, more explicit persistence and recovery
 story instead of implicit captured environments.
@@ -238,7 +249,7 @@ callee: arg1, arg2
 When the callee is itself an expression, use `call`:
 
 ```frothy
-call chooseAction: with
+call pickAction: with
 ```
 
 Applying a non-`Code` value is a runtime error, and arity is exact.

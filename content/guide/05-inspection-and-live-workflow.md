@@ -32,7 +32,7 @@ Here is a more realistic pass:
 ```frothy
 record Counter [ value ]
 counter is Counter: 2
-to counter.bump [ set counter->value to counter->value + 1 ]
+counter.bump is fn [ set counter->value to counter->value + 1 ]
 
 words
 show @counter
@@ -66,7 +66,7 @@ For example:
 ```frothy
 record Cursor [ x, y ]
 cursor is Cursor: 0, 0
-to moveRight [ set cursor->x to cursor->x + 1 ]
+moveRight is fn [ set cursor->x to cursor->x + 1 ]
 
 moveRight:
 show @cursor

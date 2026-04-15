@@ -28,7 +28,7 @@ If the top-level slot `boot` holds `Code` after restore, the runtime executes
 it under top-level recovery before entering the prompt.
 
 ```frothy
-to boot [
+boot is fn [
   led.on:
 ]
 ```
