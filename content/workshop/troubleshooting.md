@@ -44,9 +44,9 @@ and start over.
 
 ## Creative Project Is Broken
 
-Click the joystick to stop the running loop. If the loop does not check
-`joy.click?:`, press Ctrl-C. Edit `starter.frothy`, re-send, type `my.run:`.
-If the board state is poisoned, run `dangerous.wipe` before re-sending.
+**Mission file not working:** Click the joystick to stop. Run
+`dangerous.wipe` to clear state. Re-send the mission file. Type the run
+command again.
 
 ## VS Code Cannot Find The CLI
 
