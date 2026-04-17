@@ -9,7 +9,7 @@ Machine sketch surface.
 
 ## Timing
 
-**`millis:`** *(timing)* `arity 0 -> Int`
+**`millis:`** *(timing)* `() -> Int`
 
 Behavior: Return current uptime in milliseconds.
 
@@ -17,7 +17,7 @@ Behavior: Return current uptime in milliseconds.
 millis:
 ```
 
-**`ms:`** *(timing)* `arity 1 -> nil`
+**`ms:`** *(timing)* `(durationMs) -> nil`
 
 Behavior: Sleep for the given number of milliseconds.
 
@@ -27,7 +27,7 @@ ms: 75
 
 ## Random
 
-**`random.below:`** *(utility)* `arity 1 -> Int`
+**`random.below:`** *(utility)* `(n) -> Int`
 
 Behavior: Return a random integer from `0` to `n - 1`.
 
@@ -37,7 +37,7 @@ random.below: grid.width
 
 ## Math
 
-**`math.clamp:`** *(utility)* `arity 3 -> Int`
+**`math.clamp:`** *(utility)* `(value, lo, hi) -> Int`
 
 Behavior: Clamp a value to the inclusive range `lo..hi`.
 
@@ -45,11 +45,10 @@ Behavior: Clamp a value to the inclusive range `lo..hi`.
 math.clamp: player.x, 0, (grid.width - 1)
 ```
 
-**`math.wrap:`** *(utility)* `arity 2 -> Int`
+**`math.wrap:`** *(utility)* `(value, size) -> Int`
 
 Behavior: Wrap a value into the range `0..size - 1`.
 
 ```frothy
 math.wrap: player.x, grid.width
 ```
-

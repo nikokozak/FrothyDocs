@@ -387,14 +387,6 @@
 
             var code = createNode("code", "words-browser-word-name", meta.name);
             word.appendChild(code);
-
-            if (meta.kind) {
-              word.appendChild(createNode("span", "words-browser-word-kind", meta.kind));
-            }
-
-            if (meta.stack) {
-              item.appendChild(createNode("code", "words-browser-stack", meta.stack));
-            }
           });
         });
     });

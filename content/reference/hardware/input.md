@@ -9,7 +9,7 @@ are deliberately working below the workshop-friendly input layer.
 
 ## Joystick
 
-**`joy.up?:`** *(input)* `arity 0 -> Bool`
+**`joy.up?:`** *(input)* `() -> Bool`
 
 Behavior: True while the joystick is held up.
 
@@ -17,7 +17,7 @@ Behavior: True while the joystick is held up.
 when joy.up?: [ set player.y to player.y - 1 ]
 ```
 
-**`joy.down?:`** *(input)* `arity 0 -> Bool`
+**`joy.down?:`** *(input)* `() -> Bool`
 
 Behavior: True while the joystick is held down.
 
@@ -25,7 +25,7 @@ Behavior: True while the joystick is held down.
 when joy.down?: [ set player.y to player.y + 1 ]
 ```
 
-**`joy.left?:`** *(input)* `arity 0 -> Bool`
+**`joy.left?:`** *(input)* `() -> Bool`
 
 Behavior: True while the joystick is held left.
 
@@ -33,7 +33,7 @@ Behavior: True while the joystick is held left.
 when joy.left?: [ set player.x to player.x - 1 ]
 ```
 
-**`joy.right?:`** *(input)* `arity 0 -> Bool`
+**`joy.right?:`** *(input)* `() -> Bool`
 
 Behavior: True while the joystick is held right.
 
@@ -41,7 +41,7 @@ Behavior: True while the joystick is held right.
 when joy.right?: [ set player.x to player.x + 1 ]
 ```
 
-**`joy.click?:`** *(input)* `arity 0 -> Bool`
+**`joy.click?:`** *(input)* `() -> Bool`
 
 Behavior: True while the joystick is pressed.
 
@@ -51,7 +51,7 @@ when joy.click?: [ grid.clear: ]
 
 ## Knobs
 
-**`knob.left:`** *(input)* `arity 0 -> Int`
+**`knob.left:`** *(input)* `() -> Int`
 
 Behavior: Left knob as an easy-to-scale percentage-style value from `0` to
 `100`.
@@ -60,7 +60,7 @@ Behavior: Left knob as an easy-to-scale percentage-style value from `0` to
 knob.left:
 ```
 
-**`knob.right:`** *(input)* `arity 0 -> Int`
+**`knob.right:`** *(input)* `() -> Int`
 
 Behavior: Right knob as an easy-to-scale percentage-style value from `0` to
 `100`.
@@ -69,7 +69,7 @@ Behavior: Right knob as an easy-to-scale percentage-style value from `0` to
 knob.right:
 ```
 
-**`knob.left.raw:`** *(input raw)* `arity 0 -> Int`
+**`knob.left.raw:`** *(input raw)* `() -> Int`
 
 Behavior: Raw ADC reading for the left knob.
 
@@ -77,7 +77,7 @@ Behavior: Raw ADC reading for the left knob.
 knob.left.raw:
 ```
 
-**`knob.right.raw:`** *(input raw)* `arity 0 -> Int`
+**`knob.right.raw:`** *(input raw)* `() -> Int`
 
 Behavior: Raw ADC reading for the right knob.
 
@@ -87,7 +87,7 @@ knob.right.raw:
 
 ## Raw Button Pattern
 
-**`gpio.input:`** *(GPIO)* `arity 1 -> nil`
+**`gpio.input:`** *(GPIO)* `(pin) -> nil`
 
 Behavior: Configure a pin for input.
 
@@ -95,7 +95,7 @@ Behavior: Configure a pin for input.
 gpio.input: BUTTON_2
 ```
 
-**`gpio.read:`** *(GPIO)* `arity 1 -> Int`
+**`gpio.read:`** *(GPIO)* `(pin) -> Int`
 
 Behavior: Read the current pin level.
 
@@ -114,4 +114,3 @@ button.two? is fn [
 
 `BUTTON_1` and `A0` share the same raw GPIO on the mounted workshop board, so
 prefer `joy.*?` and `knob.*` for first-time input work.
-
