@@ -64,7 +64,7 @@
   }
 
   function groupWordEntries(root) {
-    if (!root.closest(".page-words")) return;
+    if (!root.closest(".reference-page")) return;
 
     var content = root.querySelector(".content");
     if (!content) return;
@@ -190,7 +190,7 @@
   }
 
   function buildWordBrowser(root) {
-    if (!root.closest(".page-words")) return;
+    if (!root.closest(".reference-page")) return;
 
     var content = root.querySelector(".content");
     if (!content || content.querySelector("[data-words-browser]")) return;
@@ -310,7 +310,7 @@
     controls.appendChild(clearButton);
 
     var jumps = createNode("nav", "words-browser-jumps");
-    jumps.setAttribute("aria-label", "Word reference sections");
+    jumps.setAttribute("aria-label", "Reference sections");
     shell.appendChild(jumps);
 
     var catalog = createNode("div", "words-browser-catalog");
@@ -382,11 +382,8 @@
             itemWrap.appendChild(item);
             meta.item = itemWrap;
 
-            var itemHeader = createNode("div", "words-browser-item-head");
-            item.appendChild(itemHeader);
-
             var word = createNode("div", "words-browser-word");
-            itemHeader.appendChild(word);
+            item.appendChild(word);
 
             var code = createNode("code", "words-browser-word-name", meta.name);
             word.appendChild(code);
@@ -396,11 +393,7 @@
             }
 
             if (meta.stack) {
-              itemHeader.appendChild(createNode("code", "words-browser-stack", meta.stack));
-            }
-
-            if (meta.summary) {
-              item.appendChild(createNode("p", "words-browser-summary", meta.summary));
+              item.appendChild(createNode("code", "words-browser-stack", meta.stack));
             }
           });
         });
@@ -477,4 +470,14 @@
     groupWordEntries(page);
     buildWordBrowser(page);
   });
+
+  if (window.location.hash) {
+    var targetId = decodeURIComponent(window.location.hash.slice(1));
+    var target = targetId ? document.getElementById(targetId) : null;
+    if (target) {
+      window.setTimeout(function () {
+        target.scrollIntoView();
+      }, 0);
+    }
+  }
 })();

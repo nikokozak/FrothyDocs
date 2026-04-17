@@ -18,6 +18,8 @@ Semantics changes should land in the Frothy repo first.
 | `/reference/cli/` | `README.md`, workshop guide docs |
 | `/reference/ffi/` | `docs/adr/108-frothy-ffi-boundary.md`, `docs/guide/Frothy_From_The_Ground_Up.md` |
 | `/reference/hardware/base-image/` | `docs/adr/117-workshop-base-image-board-library-surface.md`, `boards/esp32-devkit-v1/lib/base.frothy`, `boards/esp32-devkit-v4-game-board/lib/base.frothy`, board `board.json` files |
-| `/reference/hardware/tm1629/` | `docs/adr/119-tm1629-board-base-surface-and-registry.md`, `boards/esp32-devkit-v4-game-board/lib/base.frothy`, `boards/esp32-devkit-v4-game-board/ffi.c` |
-| `/reference/hardware/matrix/` | `boards/esp32-devkit-v4-game-board/lib/base.frothy`, `docs/adr/119-tm1629-board-base-surface-and-registry.md` |
+| `/reference/hardware/words/` | `boards/esp32-devkit-v4-game-board/lib/base.frothy`, workshop quick reference |
+| `/reference/hardware/display/` | `docs/adr/119-tm1629-board-base-surface-and-registry.md`, `boards/esp32-devkit-v4-game-board/lib/base.frothy`, `boards/esp32-devkit-v4-game-board/ffi.c` |
+| `/reference/hardware/input/` | `docs/adr/117-workshop-base-image-board-library-surface.md`, `boards/esp32-devkit-v4-game-board/lib/base.frothy`, board `board.json` |
+| `/reference/hardware/utilities/` | `boards/esp32-devkit-v4-game-board/lib/base.frothy`, workshop quick reference |
 | `/what-makes-frothy-different/` | `README.md`, `docs/spec/Frothy_Language_Spec_v0_1.md`, Frothy ADR stack |

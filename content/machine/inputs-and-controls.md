@@ -127,4 +127,4 @@ On this board, input most often feeds one of three things:
 That is why the input layer is small but effective. The board is tiny, so
 clear named inputs matter more than a huge helper stack.
 
-Next: [Games and loops](/machine/games-and-loops/).
+Next: [Patterns](/machine/patterns/).

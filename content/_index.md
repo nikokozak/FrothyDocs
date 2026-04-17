@@ -62,6 +62,8 @@ workshop without reading low-level board reference first.
   principles.
 - [Explore the Machine](/machine/) for the Froth Machine board, its words, its
   controls, and its first games.
+- [Use the Workshop](/workshop/) for the live puzzle activity, missions, quick
+  reference, and troubleshooting.
 - [Use the reference](/reference/) when you need exact behavior or library
   surface details.
 - [Read how Frothy differs](/what-makes-frothy-different/) for the breaks from

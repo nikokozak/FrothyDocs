@@ -41,22 +41,23 @@ adc.percent: A0
 
 Those words are seeded into the base image so they survive `dangerous.wipe`.
 
-## TM1629 And `matrix.*`
+## Display Layers
 
 The protoboard layers are:
 
 - `tm1629.raw.*` for maintained C-backed framebuffer primitives
 - `tm1629.*` for the canonical advanced display API
 - `matrix.*` for the small teaching layer with baked-in board pins
+- `grid.*` for the workshop-facing 12x8 game canvas
 
 ## First Protoboard Example
 
 ```frothy
 matrix.init:
-matrix.clear:
-matrix.rect: 0, 0, 12, 8, true
+grid.clear:
+grid.rect: 0, 0, grid.width, grid.height, true
 matrix.line: 0, 0, 11, 7, false
-matrix.show:
+grid.show:
 ```
 
 That code is already in the right shape for the protoboard: initialize the

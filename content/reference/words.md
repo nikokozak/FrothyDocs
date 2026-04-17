@@ -5,7 +5,7 @@ description: "Core syntax, operators, state, collections, and prompt-facing buil
 ---
 
 This page covers the core language surface. Board and protoboard APIs live
-under [Hardware](/reference/hardware/). CLI and editor behavior live under
+under [Machine board reference](/reference/hardware/). CLI and editor behavior live under
 [CLI](/reference/cli/) and [Interactive Profile](/reference/interactive-profile/).
 
 ## Top-Level Forms

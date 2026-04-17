@@ -40,10 +40,9 @@ From here, the Machine docs split by the questions most people actually ask:
   rectangles, and the display layers
 - [Inputs and controls](/machine/inputs-and-controls/) for joystick, knobs, and
   the raw button path
-- [Games and loops](/machine/games-and-loops/) for the usual shape of a small
-  board game, plus Life and Pong examples
-- [Workshop](/machine/workshop/) for the guided puzzle activity, creative
-  missions, and quick reference card
+- [Patterns](/machine/patterns/) for game loops, joystick movement, collision,
+  knob mapping, timing, Life, and Pong
 
-Use [Reference](/reference/) when you want exact behavior. Use Machine when you
-want the board as a thing you can actually hold, draw on, and play with.
+Use the [Machine board reference](/reference/hardware/words/) when you want
+exact arguments and return values. Use [Workshop](/workshop/) for the live
+classroom activity, creative missions, and troubleshooting.

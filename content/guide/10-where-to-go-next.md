@@ -23,9 +23,10 @@ After the guide, the next stop depends on what you are trying to do.
 - [Hardware overview](/reference/hardware/) for the layered board story
 - [Base-image board reference](/reference/hardware/base-image/) for
   `millis`, `gpio.*`, `led.*`, and `adc.percent`
-- [TM1629 reference](/reference/hardware/tm1629/) and
-  [matrix reference](/reference/hardware/matrix/) for the protoboard display
-  surface
+- [Machine board words](/reference/hardware/words/) for the exact board words,
+  arity, return values, and examples
+- [Display reference](/reference/hardware/display/) for `grid.*`, `matrix.*`,
+  and `tm1629.*`
 
 ## If You Are Extending Frothy
 

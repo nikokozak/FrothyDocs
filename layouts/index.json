@@ -1,5 +1,5 @@
 [
-  {{- $pages := where .Site.RegularPages "Params.searchExclude" "!=" true -}}
+  {{- $pages := where (where .Site.RegularPages "Params.searchExclude" "!=" true) "Params.hidden" "!=" true -}}
   {{- range $index, $page := $pages.ByTitle -}}
     {{- if $index }},{{ end }}
     {

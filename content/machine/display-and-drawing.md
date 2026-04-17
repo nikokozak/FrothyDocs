@@ -4,11 +4,12 @@ weight: 2
 description: "How the display layers fit together, how to draw, and when to reach for `grid`, `matrix`, or `tm1629`."
 ---
 
-The display has three useful layers.
+The display has three useful layers. They are not three unrelated APIs: they
+are three levels over the same 12x8 display.
 
 ## Which Layer Should I Use?
 
-Use `grid.*` when you want the smallest teaching surface:
+Use `grid.*` when you are thinking in game cells:
 
 - `grid.clear`
 - `grid.set`
@@ -18,8 +19,10 @@ Use `grid.*` when you want the smallest teaching surface:
 - `grid.fill`
 - `grid.show`
 
-Use `matrix.*` when you want named drawing operations:
+Use `matrix.*` when you are thinking in display setup or drawing primitives:
 
+- `matrix.init`
+- `matrix.brightness!`
 - `matrix.pixel!`
 - `matrix.line`
 - `matrix.rect`
@@ -30,7 +33,26 @@ Use `tm1629.*` when you want the more advanced display helpers such as staged
 next-frame updates, procedural filling, sprite blits, or the built-in Life
 stepper.
 
-For first experiments, stay with `grid` and `matrix`.
+For first experiments, initialize with `matrix.init:`, draw with `grid.*` or
+`matrix.*`, and flush with `grid.show:` or `matrix.show:`. The front-door
+display words share the same framebuffer, so it is normal to mix `grid.set:`
+and `matrix.line:` in one frame.
+
+## Why The Split Exists
+
+The split keeps beginner code readable without hiding the lower layers:
+
+- `grid.*` names the board as a tiny game canvas. It is good for pixels,
+  toggles, simple collision checks, and workshop sketches.
+- `matrix.*` names the board as an LED matrix. It is good for initialization,
+  brightness, and geometric drawing.
+- `tm1629.*` names the display driver/runtime. It is good when you need staged
+  frames, row operations, shifting, procedural fill, blits, or simulation
+  helpers.
+
+If you only remember one rule, use `grid.*` for game state and single pixels,
+`matrix.*` for display setup and shapes, and `tm1629.*` only when the display
+logic itself becomes interesting.
 
 ## Light Pixels And Draw A Line
 
@@ -112,10 +134,17 @@ control over animation or whole-frame updates.
 If your idea sounds like:
 
 - "light this pixel"
+- "read this pixel"
+- "toggle this cell"
+
+use `grid.*`.
+
+If your idea sounds like:
+
 - "draw this line"
 - "draw this box"
 
-stay at `grid.*` or `matrix.*`.
+use `matrix.*`.
 
 If your idea sounds like:
 

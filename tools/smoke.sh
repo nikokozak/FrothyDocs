@@ -31,8 +31,13 @@ for route in \
   public/reference/ffi/index.html \
   public/reference/hardware/index.html \
   public/reference/hardware/base-image/index.html \
-  public/reference/hardware/tm1629/index.html \
-  public/reference/hardware/matrix/index.html \
+  public/reference/hardware/words/index.html \
+  public/reference/hardware/display/index.html \
+  public/reference/hardware/input/index.html \
+  public/reference/hardware/utilities/index.html \
+  public/workshop/index.html \
+  public/workshop/broken-beacon/index.html \
+  public/workshop/quick-reference/index.html \
   public/what-makes-frothy-different/index.html
 do
   test -f "$route"

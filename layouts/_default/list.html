@@ -8,7 +8,7 @@
     {{ .Content }}
   </div>
 
-  {{ $pages := .Pages.ByWeight }}
+  {{ $pages := where .Pages.ByWeight "Params.hidden" "!=" true }}
   {{ if eq .Section "guide" }}
   {{ $mainPages := where $pages "Params.advanced" "!=" true }}
   {{ $advancedPages := where $pages "Params.advanced" true }}

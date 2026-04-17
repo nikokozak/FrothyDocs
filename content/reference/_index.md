@@ -19,5 +19,5 @@ The main sections are:
   overlay and the recovery surface
 - [CLI](/reference/cli/) for the maintained command-line and editor path
 - [FFI](/reference/ffi/) for the Frothy/C boundary
-- [Hardware](/reference/hardware/) for the shared base-image surface and the
-  TM1629 protoboard layers
+- [Machine board reference](/reference/hardware/) for board words, display,
+  input, utilities, and the shared base-image surface
