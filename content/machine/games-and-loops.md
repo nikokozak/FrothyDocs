@@ -70,7 +70,7 @@ Start it like this:
 
 ```frothy
 demo.pong.setup:
-demo.pong.run: 240
+demo.pong.run:
 ```
 
 What it does:
@@ -78,7 +78,7 @@ What it does:
 - the left knob controls the left paddle
 - the right knob controls the right paddle
 - the ball advances one frame at a time
-- `joy.click?` exits the run loop early
+- `joy.click?` exits the run loop
 
 If you want to inspect the shape more closely, these are the useful entry
 points:

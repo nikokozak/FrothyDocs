@@ -42,6 +42,8 @@ From here, the Machine docs split by the questions most people actually ask:
   the raw button path
 - [Games and loops](/machine/games-and-loops/) for the usual shape of a small
   board game, plus Life and Pong examples
+- [Workshop](/machine/workshop/) for the guided puzzle activity, creative
+  missions, and quick reference card
 
 Use [Reference](/reference/) when you want exact behavior. Use Machine when you
 want the board as a thing you can actually hold, draw on, and play with.
