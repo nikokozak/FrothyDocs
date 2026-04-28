@@ -57,7 +57,7 @@ workshop without reading low-level board reference first.
 
 ## Start Here
 
-- [Install Frothy](/install/) for the maintained CLI, VS Code, and board path.
+- [Availability](/install/) for the current pre-alpha tester status.
 - [Read the guide](/guide/) for the language and workflow from first
   principles.
 - [Explore the Machine](/machine/) for the Froth Machine board, its words, its
