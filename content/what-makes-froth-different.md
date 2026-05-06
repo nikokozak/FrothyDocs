@@ -1,15 +1,15 @@
 ---
-title: "How Frothy Is Different"
-description: "What Frothy keeps from Froth, what it changes, and why the language surface now looks different."
+title: "How Froth Is Different"
+description: "What Froth keeps from OldFroth, what it changes, and why the language surface now looks different."
 ---
 
-Frothy is not "Froth with a cosmetic rename". It keeps major substrate strengths
-from Froth and deliberately changes the public language model where the old
-surface was no longer serving the product.
+Froth is not OldFroth with a cosmetic rename. It keeps major substrate
+strengths from OldFroth and deliberately changes the public language model
+where the old surface was no longer serving the product.
 
 ## No Stack-Centric Public Model
 
-Froth taught the language through a visible data stack. Frothy does not.
+OldFroth taught the language through a visible data stack. Froth does not.
 
 The user-facing center is now:
 
@@ -32,7 +32,7 @@ because the base image can still rebuild the same slot set.
 
 ## `Code` Is Lexical And Non-Capturing
 
-Frothy `Code` values use lexical name resolution and do not capture outer
+Froth `Code` values use lexical name resolution and do not capture outer
 locals.
 
 That sounds like a restriction, but it is one of the reasons the image,
@@ -40,8 +40,8 @@ persistence, and inspection story stays small and legible.
 
 ## Persistence Is Explicit And Recoverable
 
-Froth had persistence. Frothy keeps that strength and makes the public contract
-cleaner:
+OldFroth had persistence. Froth keeps that strength and makes the public
+contract cleaner:
 
 - `save` snapshots the overlay image
 - `restore` rebuilds that overlay image
@@ -53,13 +53,13 @@ runtime.
 
 ## Inspection Is Part Of Ordinary Work
 
-Frothy treats `words`, `show`, `see`, `core`, and `info` as part of the normal
+Froth treats `words`, `show`, `see`, `core`, and `info` as part of the normal
 prompt surface. Inspection is not a debugging afterthought. It is one of the
 reasons a live language can stay trustworthy.
 
 ## Device-First, Tool-Thin
 
-Frothy is embedded-device-first. Host and local paths exist to help you move
+Froth is embedded-device-first. Host and local paths exist to help you move
 faster, but they are not the product center.
 
 That also shows up in the control surface:
@@ -69,9 +69,9 @@ That also shows up in the control surface:
 - no daemon required to preserve state
 - editor tooling built as a thin client over that device-owned image
 
-## Froth Still Matters, But As Substrate
+## OldFroth Still Matters, But As Substrate
 
-Frothy still reuses working Froth substrate where it helps:
+Froth still reuses working OldFroth substrate where it helps:
 
 - slot tables
 - heap and object machinery
@@ -79,6 +79,6 @@ Frothy still reuses working Froth substrate where it helps:
 - interrupt and boot plumbing
 - board/platform infrastructure
 
-What changed is the policy: inherited Froth machinery is allowed to stay as
-internal substrate, but Froth's old public language priorities no longer define
+What changed is the policy: inherited OldFroth machinery is allowed to stay as
+internal substrate, but OldFroth's public language priorities no longer define
 the product.

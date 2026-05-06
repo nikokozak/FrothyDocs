@@ -18,14 +18,15 @@
 <body data-search-index="{{ "index.json" | relURL }}">
   <header class="site-header">
     <nav>
-      <a href="{{ "/" | relURL }}" class="site-title">Frothy</a>
+      <a href="{{ "/" | relURL }}" class="site-title">Froth</a>
       <div class="nav-links">
         <a href="{{ "install/" | relURL }}">Install</a>
         <a href="{{ "guide/" | relURL }}">Guide</a>
+        <a href="{{ "tutorials/" | relURL }}">Tutorials</a>
         <a href="{{ "machine/" | relURL }}">Machine</a>
         <a href="{{ "workshop/" | relURL }}">Workshop</a>
         <a href="{{ "reference/" | relURL }}">Reference</a>
-        <a href="{{ "what-makes-frothy-different/" | relURL }}">How It's Different</a>
+        <a href="{{ "what-makes-froth-different/" | relURL }}">How It's Different</a>
       </div>
       <div class="nav-controls">
         <button class="search-trigger" type="button" data-search-open aria-haspopup="dialog" aria-controls="site-search-dialog">
@@ -42,7 +43,7 @@
   </main>
 
   <footer class="site-footer">
-    <p>Frothy — a live lexical language for programmable devices</p>
+    <p>Froth — a live lexical language for programmable devices</p>
   </footer>
 
   {{ partial "search.html" . }}
@@ -66,7 +67,7 @@
     updateToggleLabel();
   </script>
   <script defer src="{{ "js/search.js" | relURL }}"></script>
-  <script defer src="{{ "js/frothy-highlight.js" | relURL }}"></script>
+  <script defer src="{{ "js/froth-highlight.js" | relURL }}"></script>
   <script defer src="{{ "js/reference-layout.js" | relURL }}"></script>
 </body>
 </html>

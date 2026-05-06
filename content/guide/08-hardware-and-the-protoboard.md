@@ -4,7 +4,7 @@ description: "Start with the Froth Machine front door, then drop into the lower-
 weight: 8
 ---
 
-Frothy's hardware story is layered.
+Froth's hardware story is layered.
 
 As a first-time board user, do not start by memorizing the low-level display
 stack. Start with the [Machine](/machine/) section instead.
@@ -30,7 +30,7 @@ The first public protoboard target on this site is the TM1629-based
 
 These are the board-agnostic shapes you should expect first:
 
-```frothy
+```froth
 millis:
 gpio.output: LED_BUILTIN
 gpio.high: LED_BUILTIN
@@ -52,7 +52,7 @@ The protoboard layers are:
 
 ## First Protoboard Example
 
-```frothy
+```froth
 matrix.init:
 grid.clear:
 grid.rect: 0, 0, grid.width, grid.height, true
@@ -66,4 +66,4 @@ display, mutate the framebuffer, then flush it.
 For friendlier board-first examples such as joystick input, knob control,
 Game of Life, and Pong, go straight to [Machine](/machine/).
 
-Next: [Extending Frothy with FFI](/guide/09-extending-with-ffi/).
+Next: [Extending Froth with FFI](/guide/09-extending-with-ffi/).

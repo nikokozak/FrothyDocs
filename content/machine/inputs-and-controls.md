@@ -15,7 +15,7 @@ That is enough for menus, drawing toys, cursor control, and small games.
 
 The joystick words are:
 
-```frothy
+```froth
 joy.up?:
 joy.down?:
 joy.left?:
@@ -27,7 +27,7 @@ Each one returns a boolean.
 
 That means the usual shape is:
 
-```frothy
+```froth
 when joy.left?:  [ ... ]
 when joy.right?: [ ... ]
 when joy.click?: [ ... ]
@@ -39,7 +39,7 @@ For first-time work, treat the joystick as "five little buttons with names".
 
 The knob words are:
 
-```frothy
+```froth
 knob.left:
 knob.right:
 knob.left.raw:
@@ -55,7 +55,7 @@ The `*.raw` variants are there when you want the ADC reading directly.
 
 Here is a simple board control loop driven by the knobs:
 
-```frothy
+```froth
 to scaleKnob with percent, max [
   percent * max / 100
 ]
@@ -88,7 +88,7 @@ The board also exposes raw button pin names such as `BUTTON_1`, `BUTTON_2`, and
 
 There is not a dedicated `button.*` helper family yet, so the raw shape is:
 
-```frothy
+```froth
 gpio.input: BUTTON_2
 gpio.read: BUTTON_2
 ```
@@ -96,7 +96,7 @@ gpio.read: BUTTON_2
 If you want a boolean helper, write one exactly the way the joystick helpers
 work:
 
-```frothy
+```froth
 button.two? is fn [
   gpio.input: BUTTON_2;
   (gpio.read: BUTTON_2) == 0

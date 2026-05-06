@@ -4,7 +4,7 @@ description: "The maintained CLI path for connecting, building, sending, and fla
 weight: 7
 ---
 
-The current public CLI name is `froth`, even though the product is Frothy.
+The current public CLI name is `froth`, even though the product is Froth.
 
 ## The Small Command Set
 

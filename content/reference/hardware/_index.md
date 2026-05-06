@@ -4,7 +4,7 @@ weight: 6
 description: "Machine board words for display, input, utilities, and the shared base-image surface."
 ---
 
-Frothy's maintained hardware surface is layered:
+Froth's maintained hardware surface is layered:
 
 - [Board words](/reference/hardware/words/) for the one-page lookup table
 - [Display](/reference/hardware/display/) for `grid.*`, `matrix.*`,

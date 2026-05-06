@@ -34,7 +34,7 @@
     return "";
   }
 
-  function highlightFrothy(source) {
+  function highlightFroth(source) {
     let out = "";
     let i = 0;
 
@@ -89,8 +89,8 @@
   }
 
   document
-    .querySelectorAll("pre code.language-frothy, pre code.language-froth")
+    .querySelectorAll("pre code.language-froth, pre code.language-frothy")
     .forEach(function (node) {
-      node.innerHTML = highlightFrothy(node.textContent || "");
+      node.innerHTML = highlightFroth(node.textContent || "");
     });
 })();
