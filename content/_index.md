@@ -3,7 +3,16 @@ title: "Froth"
 description: "Learn the live lexical language for programmable devices."
 ---
 
-Froth is a small live lexical language for programmable devices.
+Froth is a small live lexical language for programmable devices, created by Nikolai Kozak.
+
+Froth is in pre-pre-pre alpha and in ongoing development. It was designed as a thesis project at the NYU ITP program.
+
+You can get in contact with me at: nkozak [at] nyu [dot] edu.
+
+Most of this site is OSAI generated (buyer beware) from the project repo at:
+
+[Froth](https://github.com/nikokozak/froth) - Stable, ESP32 targeting.
+[Frothy Rewrite](https://github.com/nikokozak/frothyrewrite) - Ongoing rewrite, ATMega328p and other small profiles.
 
 ```froth
 to pulse with pin, wait [
