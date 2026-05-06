@@ -244,7 +244,7 @@ main {
   font-size: 0.85rem;
 }
 
-.content pre code.language-frothy,
+.content pre code.language-froth,
 .content pre code.language-froth {
   display: block;
   color: var(--color-text);
@@ -686,9 +686,9 @@ main .reference-page {
   color: var(--color-text-secondary);
 }
 
-.reference-page .content pre code.language-frothy::before,
+.reference-page .content pre code.language-froth::before,
 .reference-page .content pre code.language-froth::before {
-  content: "frothy";
+  content: "froth";
   display: block;
   margin-bottom: 10px;
   font-family: var(--font-mono);

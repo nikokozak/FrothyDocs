@@ -16,12 +16,12 @@ The workshop board gives you:
 - a built-in LED
 - raw pin names for the display, joystick, knobs, and buttons
 
-In everyday Frothy work, the front-door words are not the raw pin names.
+In everyday Froth work, the front-door words are not the raw pin names.
 Start with the higher-level board words instead.
 
 ## The First Display Proof
 
-```frothy
+```froth
 matrix.init:
 matrix.brightness!: 0
 grid.clear:
@@ -47,7 +47,7 @@ That is the basic pattern for the whole board:
 
 Try the joystick and knobs directly at the prompt:
 
-```frothy
+```froth
 joy.up?:
 joy.down?:
 joy.left?:
@@ -65,7 +65,7 @@ What those return:
 
 If you want the raw analog value instead, use:
 
-```frothy
+```froth
 knob.left.raw:
 knob.right.raw:
 ```
@@ -88,7 +88,7 @@ That is enough to do a surprising amount of work.
 
 Here is a simple moving cursor driven by the knobs:
 
-```frothy
+```froth
 to scaleKnob with percent, max [
   percent * max / 100
 ]
@@ -118,7 +118,7 @@ knobs first.
 
 If you want to experiment with a raw button, the shape is:
 
-```frothy
+```froth
 gpio.input: BUTTON_2
 gpio.read: BUTTON_2
 ```

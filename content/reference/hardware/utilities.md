@@ -13,7 +13,7 @@ Machine sketch surface.
 
 Behavior: Return current uptime in milliseconds.
 
-```frothy
+```froth
 millis:
 ```
 
@@ -21,7 +21,7 @@ millis:
 
 Behavior: Sleep for the given number of milliseconds.
 
-```frothy
+```froth
 ms: 75
 ```
 
@@ -31,7 +31,7 @@ ms: 75
 
 Behavior: Return a random integer from `0` to `n - 1`.
 
-```frothy
+```froth
 random.below: grid.width
 ```
 
@@ -41,7 +41,7 @@ random.below: grid.width
 
 Behavior: Clamp a value to the inclusive range `lo..hi`.
 
-```frothy
+```froth
 math.clamp: player.x, 0, (grid.width - 1)
 ```
 
@@ -49,6 +49,6 @@ math.clamp: player.x, 0, (grid.width - 1)
 
 Behavior: Wrap a value into the range `0..size - 1`.
 
-```frothy
+```froth
 math.wrap: player.x, grid.width
 ```

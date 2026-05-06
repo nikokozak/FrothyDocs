@@ -1,10 +1,10 @@
 ---
 title: "02. Values, Names, and Rebinding"
-description: "How Frothy sees values, places, lookup, and stable top-level identity."
+description: "How Froth sees values, places, lookup, and stable top-level identity."
 weight: 2
 ---
 
-Frothy core exposes a small set of value classes:
+Froth core exposes a small set of value classes:
 
 - `Int`
 - `Bool`
@@ -20,7 +20,7 @@ Everything user-facing is either a value or a place that holds one.
 At top level, a name refers to a stable slot identity. Rebinding changes the
 current value stored in that slot, not the slot itself.
 
-```frothy
+```froth
 speed is 75
 speed is 120
 ```
@@ -30,25 +30,25 @@ into the stable top-level slot named `speed`".
 
 If you ask for `speed`, you get whatever value that slot holds *now*.
 
-```frothy
+```froth
 speed is 75
 speed
 ```
 
 Now rebind it:
 
-```frothy
+```froth
 speed is 120
 speed
 ```
 
 The name stayed the same. The slot stayed the same. The current value changed.
-That distinction matters because Frothy expects you to redefine code and data
+That distinction matters because Froth expects you to redefine code and data
 while the image is live.
 
 ## Lookup Order
 
-Frothy resolves names in this order:
+Froth resolves names in this order:
 
 1. current local scope
 2. enclosing local scopes
@@ -56,7 +56,7 @@ Frothy resolves names in this order:
 
 That means a local can shadow a top-level slot:
 
-```frothy
+```froth
 speed is 75
 
 demo is fn [
@@ -69,7 +69,7 @@ Inside `demo`, `speed` means the local binding, not the top-level slot.
 
 It helps to see the lookup step by step:
 
-```frothy
+```froth
 speed is 75
 
 demo is fn [
@@ -91,7 +91,7 @@ The result is `10`, not `75`.
 
 Now remove the local:
 
-```frothy
+```froth
 speed is 75
 
 demo is fn [
@@ -108,7 +108,7 @@ slot and the result is `75`.
 
 The same rule applies to nested blocks.
 
-```frothy
+```froth
 speed is 75
 
 probe is fn [
@@ -127,7 +127,7 @@ result is `3`.
 
 If that inner block uses a different local name instead:
 
-```frothy
+```froth
 speed is 75
 
 probe is fn [
@@ -154,7 +154,7 @@ That is the whole lookup story:
 Rebinding is central to the live workflow. If you redefine a top-level code
 slot, callers that resolve through that slot observe the new behavior.
 
-```frothy
+```froth
 flash is fn [ led.blink: 1, 75 ]
 flash:
 
@@ -162,12 +162,12 @@ flash is fn [ led.blink: 3, 40 ]
 flash:
 ```
 
-This is one of Frothy's defining properties: the live image can evolve without
+This is one of Froth's defining properties: the live image can evolve without
 pretending every change is a fresh upload cycle.
 
 The same thing holds when one word calls another:
 
-```frothy
+```froth
 blink-fast is fn [ led.blink: 1, 40 ]
 signal is fn [ blink-fast: ]
 
@@ -192,7 +192,7 @@ overlay rebind, but `dangerous.wipe` restores the boot-rebuilt base value.
 
 That means you are free to experiment:
 
-```frothy
+```froth
 blink is fn [ 99 ]
 blink:
 dangerous.wipe
@@ -200,7 +200,7 @@ dangerous.wipe
 
 After `dangerous.wipe`, the base image is authoritative again.
 
-## Values Frothy Does Not Expose
+## Values Froth Does Not Expose
 
 The language does not make raw pointers, implementation-private control
 objects, or general foreign handles into ordinary language values. That boundary

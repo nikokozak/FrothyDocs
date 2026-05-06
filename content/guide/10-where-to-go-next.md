@@ -6,7 +6,7 @@ weight: 10
 
 After the guide, the next stop depends on what you are trying to do.
 
-## If You Are Writing Frothy
+## If You Are Writing Froth
 
 - [Word reference](/reference/words/) for syntax, operators, locals, `Cells`,
   records, and the core inspection/persistence words
@@ -28,7 +28,7 @@ After the guide, the next stop depends on what you are trying to do.
 - [Display reference](/reference/hardware/display/) for `grid.*`, `matrix.*`,
   and `tm1629.*`
 
-## If You Are Extending Frothy
+## If You Are Extending Froth
 
 - [FFI reference](/reference/ffi/) for the FFI boundary and the project
   versus board split

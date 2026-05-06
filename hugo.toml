@@ -1,6 +1,6 @@
 baseURL = "https://frothy.frothlang.org/"
 languageCode = "en-us"
-title = "Frothy"
+title = "Froth"
 relativeURLs = true
 disableKinds = ["taxonomy", "term"]
 

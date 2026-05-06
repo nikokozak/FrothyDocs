@@ -4,15 +4,15 @@ description: "Conditionals, loops, the narrow array type, and the current shaped
 weight: 4
 ---
 
-Frothy grows by composing a small set of control forms rather than by adding
+Froth grows by composing a small set of control forms rather than by adding
 many special cases.
 
 ## Conditionals
 
-Use `if`, `when`, and `unless` with explicit booleans. Frothy does not use
+Use `if`, `when`, and `unless` with explicit booleans. Froth does not use
 general truthiness.
 
-```frothy
+```froth
 if adc.percent: A0 > 50 [
   led.on:
 ] else [
@@ -25,7 +25,7 @@ If an `if` has no `else` and the condition is false, the expression yields
 
 Here is the same control style in a shape you can reuse:
 
-```frothy
+```froth
 to classify with percent [
   cond [
     when percent < 20 [ "low" ];
@@ -49,7 +49,7 @@ What happens here is plain:
 
 Use `while` for stateful repetition and `repeat` for counted repetition.
 
-```frothy
+```froth
 repeat 3 as i [
   led.blink: i + 1, 40
 ]
@@ -60,7 +60,7 @@ repeat 3 as i [
 The useful pattern is "keep state in visible places, then return a value after
 the loop":
 
-```frothy
+```froth
 to sumTo with limit [
   here total is 0;
   here i is 0;
@@ -83,10 +83,10 @@ This stays readable because nothing is hidden:
 
 ## `Cells`
 
-`Cells` is the fixed-size mutable indexed store in Frothy. Use `cells(n)` at
+`Cells` is the fixed-size mutable indexed store in Froth. Use `cells(n)` at
 top level to create a fixed store you can reuse and update.
 
-```frothy
+```froth
 frame is cells(8)
 set frame[0] to 12
 set frame[1] to true
@@ -97,7 +97,7 @@ storage", and record values also work inside cells.
 
 For plain counted storage, keep it simple:
 
-```frothy
+```froth
 histogram is cells(4)
 
 set histogram[0] to 0
@@ -133,9 +133,9 @@ If you keep forgetting what index `2` means, you probably want records.
 
 ## Records
 
-Frothy also supports records:
+Froth also supports records:
 
-```frothy
+```froth
 record Point [ x, y ]
 origin is Point: 0, 0
 ```
@@ -146,7 +146,7 @@ the thing you care about is named fields rather than indexed storage.
 The first useful record example is just "one coherent piece of state with
 names":
 
-```frothy
+```froth
 record Sprite [ x, y, visible ]
 
 player is Sprite: 3, 4, true
@@ -158,9 +158,9 @@ player->visible
 That reads better than `state[0]` and `state[2]` because the shape is carried
 in the value.
 
-Field mutation is ordinary Frothy mutation:
+Field mutation is ordinary Froth mutation:
 
-```frothy
+```froth
 set player->x to player->x + 1
 set player->visible to false
 
@@ -176,7 +176,7 @@ This is the normal pattern:
 
 You can also write small helpers against that shaped value:
 
-```frothy
+```froth
 to moveRight with sprite, step [
   set sprite->x to sprite->x + step
 ]
@@ -185,7 +185,7 @@ moveRight: player, 2
 player->x
 ```
 
-That is often the right level of abstraction in Frothy. You do not need a
+That is often the right level of abstraction in Froth. You do not need a
 class system or an object bag just to move one thing across the board.
 
 ## Records Inside `Cells`
@@ -193,7 +193,7 @@ class system or an object bag just to move one thing across the board.
 Once you want several shaped values in a fixed indexed store, combine the two
 surfaces:
 
-```frothy
+```froth
 record Pixel [ x, y, on ]
 
 pixels is cells(2)
@@ -206,7 +206,7 @@ pixels[1]->on
 
 You can mutate through the indexed place too:
 
-```frothy
+```froth
 set pixels[1]->on to true
 pixels[1]->on
 ```
@@ -219,7 +219,7 @@ simple display updates.
 Record fields may themselves hold records. That is enough for small hierarchies
 without turning the language into a dynamic object system.
 
-```frothy
+```froth
 record Point [ x, y ]
 record Actor [ pos, glyph ]
 
@@ -237,7 +237,7 @@ record field and that nested record has an `x` field.
 Records are useful partly because they persist cleanly when their fields are
 persistable:
 
-```frothy
+```froth
 record Counter [ value ]
 counter is Counter: 0
 
