@@ -1,47 +1,64 @@
 ---
 title: "How Froth Is Different"
-description: "What Froth keeps from OldFroth, what it changes, and why the language surface now looks different."
+description: "Why Froth's current language and device model differ from other small programmable-device languages."
 ---
 
-Froth is not OldFroth with a cosmetic rename. It keeps major substrate
-strengths from OldFroth and deliberately changes the public language model
-where the old surface was no longer serving the product.
+Froth sits near languages such as uLisp, small Forth systems, MicroPython, Lua
+ports, and board-specific monitor shells. It is meant for the same broad
+territory: small programs that you can change while a device is connected.
+
+Its design makes a different set of tradeoffs. Froth treats the running image
+as the place where the program lives, keeps the language surface small, and
+draws clear lines between core language behavior, interactive tooling, and the
+capabilities exposed by a selected board profile.
 
 ## No Stack-Centric Public Model
 
-OldFroth taught the language through a visible data stack. Froth does not.
+Many compact interactive languages lean on a visible stack, a Lisp evaluator,
+or a host-shaped scripting model. Froth uses names, calls, lexical locals, and
+ordinary values as the public model.
 
-The user-facing center is now:
+The user-facing center is:
 
 - stable named slots
 - lexical locals
 - `Code` as an ordinary value
 - explicit places and mutations
 
-That makes the language easier to inspect, easier to persist, and easier to
-teach without requiring every concept to be translated through stack effects.
+That keeps the language inspectable and persistable without translating every
+concept through stack effects or a larger general-purpose runtime.
 
 ## Stable Slot Identity Is The Real Top Level
 
 At top level, a name refers to a stable slot identity. Rebinding changes the
 slot's current value, not the slot itself.
 
-That one shift makes coherent live redefinition much easier to reason about.
-Existing callers keep resolving through the same slot. Recovery remains honest
-because the base image can still rebuild the same slot set.
+That choice keeps live redefinition coherent because existing callers continue
+to resolve through the same slot. Recovery also stays concrete: the base image
+can rebuild the same slot set instead of depending on hidden host state.
+
+## Capabilities Are Gated By Profiles
+
+Froth does not pretend that every target has the same hardware surface. The
+selected target names the platform layer, and the selected board profile
+decides which capabilities are present.
+
+That makes hardware access explicit. GPIO, ADC, display, input, I2C, UART, and
+LEDC words appear when the board profile exposes them. A tutorial can use the
+Froth Machine display and controls without implying that those words are part
+of every Froth image.
 
 ## `Code` Is Lexical And Non-Capturing
 
 Froth `Code` values use lexical name resolution and do not capture outer
 locals.
 
-That sounds like a restriction, but it is one of the reasons the image,
-persistence, and inspection story stays small and legible.
+The tradeoff is intentional. It keeps the image, persistence, and inspection
+story small enough to reason about on a device.
 
 ## Persistence Is Explicit And Recoverable
 
-OldFroth had persistence. Froth keeps that strength and makes the public
-contract cleaner:
+Froth makes persistence part of the public interactive contract:
 
 - `save` snapshots the overlay image
 - `restore` rebuilds that overlay image
@@ -54,12 +71,13 @@ runtime.
 ## Inspection Is Part Of Ordinary Work
 
 Froth treats `words`, `show`, `see`, `core`, and `info` as part of the normal
-prompt surface. Inspection is not a debugging afterthought. It is one of the
-reasons a live language can stay trustworthy.
+prompt surface. That matters when the device image is authoritative: you need
+to be able to ask what is present, what a name resolves to, and which pieces
+can be persisted.
 
 ## Device-First, Tool-Thin
 
-Froth is embedded-device-first. Host and local paths exist to help you move
+Froth is embedded-device-first. Host and local paths make connected work
 faster, but they are not the product center.
 
 That also shows up in the control surface:
@@ -68,17 +86,3 @@ That also shows up in the control surface:
 - explicit exclusive `.control` sessions for tooling
 - no daemon required to preserve state
 - editor tooling built as a thin client over that device-owned image
-
-## OldFroth Still Matters, But As Substrate
-
-Froth still reuses working OldFroth substrate where it helps:
-
-- slot tables
-- heap and object machinery
-- snapshot plumbing
-- interrupt and boot plumbing
-- board/platform infrastructure
-
-What changed is the policy: inherited OldFroth machinery is allowed to stay as
-internal substrate, but OldFroth's public language priorities no longer define
-the product.
