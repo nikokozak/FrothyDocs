@@ -41,7 +41,7 @@ Make the right knob control drawing speed:
 to draw.frame [
   draw.update:;
   draw.draw:;
-  ms: (math.map: knob.right:, 0, 100, 180, 20)
+  ms: (map: knob.right:, 0, 100, 180, 20)
 ]
 ```
 
@@ -113,7 +113,7 @@ cells before you switch into run mode.
 - Change the rules. Inspect `show @tm1629._lifeRule`, then redefine it with a
   different neighbor rule.
 - Tie speed to population. Count live cells with `tm1629.pixel@:`, then choose
-  the delay with `math.map:` or `math.clamp:`.
+  the delay with `map:` or `clamp:`.
 - Save interesting states. Use `save` after painting, then `restore` to replay
   a state with different timing.
 - Make a hybrid mode. Keep reading the joystick while calling
@@ -145,7 +145,7 @@ Make the snake speed up as it grows:
 to snake.frame [
   snake.update:;
   snake.draw:;
-  ms: (math.clamp: 300 - (snake.len * 12), 60, 300)
+  ms: (clamp: 300 - (snake.len * 12), 60, 300)
 ]
 ```
 
@@ -154,14 +154,14 @@ should be faster than it was at the start.
 
 ### More Ideas
 
-- Add wall death. Replace `math.wrap:` in `snake.update` with a bounds check
+- Add wall death. Replace `wrap:` in `snake.update` with a bounds check
   against `grid.width` and `grid.height`.
 - Flash the score moment. When food is eaten, use `grid.fill:`, `grid.show:`,
   and a short `ms:` delay.
 - Add obstacles. Store wall positions in `cells`, draw them with `grid.set:`,
   and check them during `snake.update`.
 - Add a second food type that shrinks the snake. Use `random.below:` for its
-  position and `math.max:` when reducing `snake.len`.
+  position and `max:` when reducing `snake.len`.
 - Add AI mode. Define a word that compares `snake.food` to the head position
   with `snake.x:` and `snake.y:`, then chooses a direction.
 

@@ -79,8 +79,8 @@ Clamp coordinates when the player should stop at the edge:
 
 ```froth
 to clampPlayer [
-  set player.x to math.clamp: player.x, 0, (grid.width - 1);
-  set player.y to math.clamp: player.y, 0, (grid.height - 1)
+  set player.x to clamp: player.x, 0, (grid.width - 1);
+  set player.y to clamp: player.y, 0, (grid.height - 1)
 ]
 ```
 
@@ -88,8 +88,8 @@ Wrap coordinates when leaving one side should re-enter from the other:
 
 ```froth
 to wrapPlayer [
-  set player.x to math.wrap: player.x, grid.width;
-  set player.y to math.wrap: player.y, grid.height
+  set player.x to wrap: player.x, grid.width;
+  set player.y to wrap: player.y, grid.height
 ]
 ```
 

@@ -2,6 +2,8 @@
 title: "Project and Build"
 weight: 6
 description: "Project file names, target versus board selection, build directories, and flashing policy."
+aliases:
+  - /reference/build-options/
 ---
 
 Froth keeps project selection explicit. A target names the platform. A board
@@ -86,3 +88,51 @@ A maintained board profile is a small set of files:
 The public language does not expose raw C pointers or native handles as
 ordinary persisted values. Board code publishes Froth values and words at the
 base-image boundary.
+
+## Build Options
+
+Project builds read build settings from `froth.toml`. The public site should
+not promise every internal CMake knob as a stable user flag; the manifest is
+the project-level surface.
+
+```toml
+[build]
+cell_size = 32
+heap_size = 8192
+slot_table_size = 320
+line_buffer_size = 2048
+```
+
+Common keys:
+
+| Manifest key | Meaning |
+| --- | --- |
+| `cell_size` | Runtime cell width in bits for the selected target profile. |
+| `heap_size` | Heap size in bytes. |
+| `slot_table_size` | Maximum top-level/base-image slot count. |
+| `line_buffer_size` | REPL input buffer size in bytes. |
+
+Board profiles may also set evaluator and persistence capacities directly in
+`board.json`. Those are maintainer-facing board choices, not knobs most users
+should tune while writing Froth.
+
+## Project FFI Build Keys
+
+Project-local C bindings use the `[ffi]` section:
+
+```toml
+[ffi]
+sources = ["src/ffi/bindings.c"]
+includes = ["src/ffi"]
+defines = { SENSOR_SCALE = "42" }
+```
+
+Validation is intentionally conservative:
+
+- `sources` must exist
+- C sources must stay under the project root
+- include directories must stay under the project root
+- generated bindings are compiled into the firmware, not loaded into a saved
+  overlay at runtime
+
+Use [Project FFI](/reference/ffi/project-ffi/) for the exact binding shape.

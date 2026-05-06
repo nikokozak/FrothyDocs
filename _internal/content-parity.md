@@ -124,47 +124,47 @@ Status keys:
 | --- | --- | --- | --- |
 | `/` | `/` | `[~]` | Rename Frothy to Froth, add a strong first-viewport product signal, add visual assets, and make the first code example current. |
 | `/install/` | `/install/` | `[~]` | Replace pre-alpha-only copy with the real launch availability path when release opens; ensure commands say `froth`. |
-| `/guide/` | `/guide/` | `[~]` | Preserve chaptered guide shape while keeping current Froth semantics. |
-| `/guide/00-installation/` | `/guide/00-installation/` or `/install/` | `[ ]` | Decide whether install is duplicated as chapter 00 or linked from guide; old shape needs an obvious guide entry. |
-| `/guide/01-what-is-froth/` | `/guide/01-what-is-froth/` | `[~]` | Rename route/title and keep the current live-image/lexical framing. |
-| `/guide/02-getting-started/` | `/guide/02-getting-started/` | `[ ]` | Add a hardware-first first-session page distinct from values/reference chapters. |
-| `/guide/03-the-stack/` | OldFroth archive plus current guide note | `[-]` | Do not preserve stack-centric teaching as current Froth. Add a short "what changed from OldFroth" bridge. |
-| `/guide/04-words-and-definitions/` | `/guide/03-values-and-names/`, `/guide/04-definitions/` | `[~]` | Split current slots/rebinding from function definition flow; make the old words page map explicit. |
-| `/guide/05-perm-and-named/` | OldFroth archive plus `/guide/04-definitions/` | `[-]` | Archive `perm` as OldFroth-specific; do not teach it as current Froth. |
-| `/guide/06-quotations-and-control/` | `/guide/05-code-locals-and-blocks/`, `/guide/06-control-flow/` | `[~]` | Current code/block chapters exist but need route/name alignment and fuller guide pacing. |
-| `/guide/07-error-handling/` | `/guide/07-errors-and-recovery/` | `[ ]` | Add current runtime error, interrupt, safe boot, restore, and recovery guidance. |
-| `/guide/08-strings-and-io/` | `/guide/08-text-and-io/` | `[ ]` | Add or explicitly defer current text/I/O coverage. |
-| `/guide/09-talking-to-hardware/` | `/guide/09-hardware/`, `/machine/` | `[~]` | Current hardware intro exists but needs old-shape route and clearer split from Machine. |
-| `/guide/10-snapshots-and-persistence/` | `/guide/10-persistence/`, `/reference/image-and-persistence/` | `[~]` | Current persistence reference exists; guide page needs more narrative depth. |
-| `/guide/11-where-to-go-next/` | `/guide/11-where-to-go-next/` | `[~]` | Rename and route-align. |
-| `/guide/12-ffi-and-c/` | `/guide/12-ffi-and-c/`, `/reference/ffi/` | `[~]` | Current FFI guide/reference exists, but old site has deeper nested FFI material. |
+| `/guide/` | `/guide/` | `[x]` | Chaptered guide shape restored with current Froth semantics. |
+| `/guide/00-installation/` | `/install/` alias | `[x]` | Install remains canonical; the old guide chapter route resolves to it. |
+| `/guide/01-what-is-froth/` | `/guide/01-what-is-froth/` | `[x]` | Current live-image/lexical framing exists. |
+| `/guide/02-getting-started/` | `/guide/02-getting-started/` | `[x]` | Hardware-first first-session page added. |
+| `/guide/03-the-stack/` | `/guide/03-the-stack/` | `[x]` | Current analogue explains values/expressions and explicitly bridges away from the OldFroth stack model. |
+| `/guide/04-words-and-definitions/` | `/guide/04-words-and-definitions/` | `[x]` | Current Code/definition chapter added. |
+| `/guide/05-perm-and-named/` | `/guide/05-perm-and-named/` | `[x]` | Current analogue covers locals, names, mutation, and Cells while marking `perm` as OldFroth-specific. |
+| `/guide/06-quotations-and-control/` | `/guide/06-quotations-and-control/` | `[x]` | Current blocks/control-flow chapter added. |
+| `/guide/07-error-handling/` | `/guide/07-error-handling/` | `[x]` | Runtime error, interrupt, inspection, safe boot, restore, and wipe guidance added. |
+| `/guide/08-strings-and-io/` | `/guide/08-strings-and-io/` | `[x]` | Current Text and board-I/O split documented. |
+| `/guide/09-talking-to-hardware/` | `/guide/09-talking-to-hardware/` | `[x]` | Hardware guide route restored and split clearly from Machine. |
+| `/guide/10-snapshots-and-persistence/` | `/guide/10-snapshots-and-persistence/` | `[x]` | Narrative persistence chapter added. |
+| `/guide/11-where-to-go-next/` | `/guide/11-where-to-go-next/` | `[x]` | Route aligned. |
+| `/guide/12-ffi-and-c/` | `/guide/12-ffi-and-c/`, `/reference/ffi/` | `[x]` | Current FFI guide route added and kept advanced. |
 | `/tutorials/` | `/tutorials/` | `[x]` | Top-level tutorials section exists in the new site nav and smoke checks. |
 | `/tutorials/blink-an-led/` | `/tutorials/blink-an-led/` | `[x]` | Rewritten around current `froth` CLI, `to ... with ...`, `LED_BUILTIN`, save, and wipe. |
 | `/tutorials/interactive-workflow/` | `/tutorials/interactive-workflow/` | `[x]` | Rewritten around current CLI/editor control session, live image inspection, interrupt, and save workflow. |
 | `/tutorials/read-a-sensor/` | `/tutorials/read-inputs/` | `[x]` | Rewritten for joystick and knob helpers on the Froth Machine. |
 | `/tutorials/read-a-button/` | `/tutorials/read-inputs/` | `[x]` | Folded into the current input tutorial and Machine controls path. |
-| `/tutorials/fade-an-led/` | `/tutorials/fade-an-led/` or archive | `[ ]` | Keep only if maintained PWM/LED fading surface exists; otherwise mark as OldFroth archive. |
-| `/tutorials/drive-a-servo/` | `/tutorials/drive-a-servo/` or archive | `[ ]` | Keep only if current hardware support exists. |
-| `/tutorials/build-a-calculator/` | `/tutorials/build-a-small-tool/` or archive | `[ ]` | Replace stack-language calculator with current lexical example or archive as OldFroth. |
-| `/tutorials/advent-of-code-grid-scan/` | `/tutorials/grid-scan/` or `/machine/patterns/` | `[~]` | Machine patterns partially cover this; decide whether it graduates to tutorial. |
-| `/tutorials/advent-of-code-safe-dial/` | `/tutorials/safe-dial/` or `/machine/patterns/` | `[~]` | Machine patterns partially cover this; decide whether it graduates to tutorial. |
+| `/tutorials/fade-an-led/` | `/tutorials/fade-an-led/` | `[x]` | Current LEDC/PWM analogue added and marked board-specific/advanced. |
+| `/tutorials/drive-a-servo/` | `/tutorials/drive-a-servo/` | `[x]` | Current LEDC servo analogue added and marked board-specific/advanced. |
+| `/tutorials/build-a-calculator/` | `/tutorials/build-a-calculator/` | `[x]` | Rewritten as a current lexical/stateful calculator rather than a stack-language calculator. |
+| `/tutorials/advent-of-code-grid-scan/` | `/tutorials/advent-of-code-grid-scan/` | `[x]` | Current Cells-based grid-scan tutorial added. |
+| `/tutorials/advent-of-code-safe-dial/` | `/tutorials/advent-of-code-safe-dial/` | `[x]` | Current Cells/named-state safe-dial tutorial added. |
 | `/reference/` | `/reference/` | `[~]` | New reference index exists, but needs old-shape route coverage. |
 | `/reference/words/` | `/reference/words/` | `[~]` | Current words reference exists; verify complete against maintained base image. |
 | `/reference/cli/` | `/reference/cli/` | `[~]` | Update command name to `froth` and include release/install/project distinctions. |
 | `/reference/vscode/` | `/reference/editor/` | `[x]` | Public editor reference now covers visible commands, settings, and recovery flow. |
-| `/reference/build-options/` | `/reference/project-and-build/` | `[x]` | Target/board/project build reference now exists. |
-| `/reference/profiles/` | `/reference/interactive-profile/` | `[~]` | Current profile page exists; rename away from Frothy and verify control-session details. |
-| `/reference/snapshot-format/` | `/reference/image-and-persistence/` | `[~]` | Current page exists; decide how much binary-format detail belongs publicly. |
+| `/reference/build-options/` | `/reference/project-and-build/` alias | `[x]` | Target/board/project build reference now includes build option material and old route alias. |
+| `/reference/profiles/` | `/reference/interactive-profile/` alias | `[x]` | Current profile/capability page exists with old route alias. |
+| `/reference/snapshot-format/` | `/reference/image-and-persistence/` alias | `[x]` | Public snapshot model documented; binary format kept out of the stable public contract. |
 | `/reference/ffi/` | `/reference/ffi/` | `[x]` | Structured FFI section now exists and uses public `froth_*` / `FROTH_*` C aliases. |
 | `/reference/ffi/project-ffi/` | `/reference/ffi/project-ffi/` | `[x]` | Project FFI route now documents manifest, validation, build path, and ownership rules. |
 | `/reference/ffi/project-ffi-example/` | `/reference/ffi/project-ffi-example/` | `[x]` | Current example now uses `froth_ffi.h`, `froth_project_bindings`, and current Froth call syntax. |
 | `/reference/ffi/board-ffi-example/` | `/reference/ffi/board-ffi-example/` | `[x]` | Current maintained-board example route now exists. |
 | `/reference/ffi/how-it-works/` | `/reference/ffi/how-it-works/` | `[x]` | Runtime model and public C surface route now exists. |
 | `/reference/hardware/` | `/reference/hardware/` | `[~]` | New hardware reference exists and is Machine-oriented; add generic maintained-board map. |
-| `/reference/hardware/gpio/` | `/reference/hardware/gpio/` or `/reference/hardware/base-image/` | `[~]` | Current base image has GPIO coverage; route decision needed. |
-| `/reference/hardware/timing/` | `/reference/hardware/timing/` or `/reference/hardware/utilities/` | `[~]` | Current utilities page exists but is thin. |
-| `/reference/hardware/i2c/` | OldFroth archive or current hardware route | `[-]` | Keep only if current release exposes I2C. |
-| `/reference/hardware/uart/` | OldFroth archive or current hardware route | `[-]` | Keep only if current release exposes UART. |
+| `/reference/hardware/gpio/` | `/reference/hardware/gpio/` | `[x]` | Dedicated current GPIO route added. |
+| `/reference/hardware/timing/` | `/reference/hardware/timing/` | `[x]` | Dedicated current timing route added. |
+| `/reference/hardware/i2c/` | `/reference/hardware/i2c/` | `[x]` | Current source-board I2C route added and marked outside beginner Machine path. |
+| `/reference/hardware/uart/` | `/reference/hardware/uart/` | `[x]` | Current source-board UART route added and marked outside beginner Machine path. |
 | `/what-makes-froth-different/` | `/what-makes-froth-different/` | `[x]` | Renamed from Frothy and framed against OldFroth. |
 | Search index | Search index | `[x]` | Smoke checks now cover tutorials, core terms, and stale generated public identity. |
 | Visual assets | Visual assets | `[x]` | Homepage now has a checked-in `home-hero.png` asset. |
