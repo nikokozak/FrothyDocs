@@ -2,22 +2,19 @@
 title: "Install"
 aliases:
   - /guide/00-installation/
-description: "Current Froth availability, release gates, and the command shape public releases will use."
+description: "Install Froth with Homebrew, direct release archives, or the VS Code extension."
 ---
 
-Froth is not publicly installable yet. The commands below are the release
-shape that will go live after the artifacts and the main-site cutover are
-validated.
+Froth currently ships as public prerelease tooling. The maintained CLI command
+is:
 
-The installed command is:
-
-```sh
+```text
 froth
 ```
 
 ## Homebrew
 
-On macOS, the preferred install path will be:
+On macOS, use the Froth Homebrew tap:
 
 ```sh
 brew install nikokozak/froth/froth
@@ -27,19 +24,23 @@ froth doctor
 
 ## Direct Tarball
 
-Each release will publish CLI archives named:
+The current CLI release is `v0.1.0`. Download the archive for your platform:
 
 ```text
-froth-v<version>-darwin-arm64.tar.gz
-froth-v<version>-darwin-amd64.tar.gz
-froth-v<version>-linux-amd64.tar.gz
+froth-v0.1.0-darwin-arm64.tar.gz
+froth-v0.1.0-darwin-amd64.tar.gz
+froth-v0.1.0-linux-amd64.tar.gz
 ```
 
-Direct install will be:
+Use `darwin-arm64` for Apple Silicon macOS, `darwin-amd64` for Intel macOS,
+or `linux-amd64` for x86_64 Linux:
 
 ```sh
-curl -LO https://github.com/nikokozak/froth/releases/download/v<version>/froth-v<version>-<os>-<arch>.tar.gz
-tar -xzf froth-v<version>-<os>-<arch>.tar.gz
+VERSION=0.1.0
+PLATFORM=darwin-arm64
+curl -LO https://github.com/nikokozak/froth/releases/download/v${VERSION}/froth-v${VERSION}-${PLATFORM}.tar.gz
+tar -xzf froth-v${VERSION}-${PLATFORM}.tar.gz
+mkdir -p ~/.local/bin
 install -m 0755 froth ~/.local/bin/froth
 froth --version
 froth doctor
@@ -50,11 +51,20 @@ Use a directory already on `PATH`; on macOS, `/usr/local/bin` or
 
 ## VS Code
 
-The editor package will publish as `NikolaiKozak.froth`, with a matching
-fallback VSIX named:
+Install the public VS Code extension as `NikolaiKozak.froth` from the
+Marketplace.
+
+The `v0.1.0` Froth release also carries a fallback VSIX:
 
 ```text
-froth-vscode-v<extension-version>.vsix
+froth-vscode-v0.1.1.vsix
+```
+
+Install it from a shell where the VS Code `code` command is available:
+
+```sh
+curl -LO https://github.com/nikokozak/froth/releases/download/v0.1.0/froth-vscode-v0.1.1.vsix
+code --install-extension froth-vscode-v0.1.1.vsix
 ```
 
 If VS Code cannot find the command on `PATH`, set `froth.cliPath` to the
@@ -62,15 +72,11 @@ absolute path of the installed `froth` binary.
 
 ## First Check
 
-After any install path, run:
+After installing the CLI, run:
 
 ```sh
 froth doctor
 ```
 
-Until then, Froth is available only to pre-alpha testers and local checkout
-maintainers. The staging docs are deliberately not a promise that the public
-installer is ready.
-
-If you are interested in testing Froth, contact Nikolai at
-`nkozak [at] nyu [dot] edu`.
+For release files and checksums, use the
+[Froth v0.1.0 release](https://github.com/nikokozak/froth/releases/tag/v0.1.0).
