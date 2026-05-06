@@ -23,10 +23,10 @@ blink: LED_BUILTIN
 save
 ```
 
-Froth keeps the strongest substrate traits from OldFroth and changes the public
-model where the old stack-centered surface got in the way. The language is
-built around stable named slots, lexical scopes, non-capturing `Code`, explicit
-persistence, and direct inspection of the live device image.
+Froth is built around stable named slots, lexical scopes, non-capturing `Code`,
+explicit persistence, and direct inspection of the live device image. It keeps
+the device in the center: change a name, inspect the result, save the image
+when it is worth keeping.
 
 ## Live Image, Not Upload Cycles
 
@@ -37,19 +37,19 @@ and reset that overlay without pretending the device is disposable.
 
 ## Lexical, Inspectable, Device-First
 
-Froth deliberately does not preserve OldFroth's stack-centric user model.
-Everything user-facing is either a value or a place that holds one. Blocks are
-lexical. `Code` is just another value. Inspection is part of ordinary work:
+Froth does not put a data stack at the user-facing center. Everything
+user-facing is either a value or a place that holds one. Blocks are lexical.
+`Code` is just another value. Inspection is part of ordinary work:
 `words`, `show`, `see`, `core`, and `info` are built into the maintained
 interactive surface.
 
 ## Built For Real Boards
 
-Froth is embedded-device-first. Host and local paths exist to make
-development faster, but the maintained proof path stays on connected ESP32
-hardware. The first public protoboard target on this site is the TM1629-based
+Froth is embedded-device-first. Host and local paths make development faster,
+but the maintained proof path stays on connected ESP32 hardware. The
+protoboard target documented here is the TM1629-based
 `esp32-devkit-v4-game-board`, with the shared base-image board library
-documented underneath it.
+underneath it.
 
 On this site, that protoboard is introduced as the [Froth Machine](/machine/):
 the display, joystick, knobs, and small game-shaped workflow you can learn in a
@@ -57,7 +57,8 @@ workshop without reading low-level board reference first.
 
 ## Start Here
 
-- [Availability](/install/) for the current pre-alpha tester status.
+- [Install Froth](/install/) for the CLI, release archives, and editor
+  extension.
 - [Read the guide](/guide/) for the language and workflow from first
   principles.
 - [Follow a tutorial](/tutorials/) when you want a task-shaped path.
@@ -67,5 +68,5 @@ workshop without reading low-level board reference first.
   reference, and troubleshooting.
 - [Use the reference](/reference/) when you need exact behavior or library
   surface details.
-- [Read how Froth differs](/what-makes-froth-different/) for the breaks from
-  OldFroth and the reasons behind them.
+- [Read the migration notes](/what-makes-froth-different/) if you are coming
+  from OldFroth.

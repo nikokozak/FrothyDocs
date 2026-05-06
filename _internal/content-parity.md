@@ -60,8 +60,8 @@ coverage, navigational shape, and presentation quality.
 - [x] Reference depth covers CLI, editor, project/build, interactive profile,
   image/persistence, FFI, words, and hardware.
 - [ ] Public examples use current Froth syntax and current maintained commands.
-- [~] Public install content is honest about availability; the complete
-  install path still waits on release artifacts.
+- [x] Public install content points at the current release artifacts and
+  Homebrew tap.
 - [x] Site search indexes the guide, tutorials, machine, workshop, and reference
   surfaces.
 - [x] Smoke checks fail on missing routes, broken internal links, placeholder
@@ -123,7 +123,7 @@ Status keys:
 | Old Froth route | New Froth route | Status | Required action |
 | --- | --- | --- | --- |
 | `/` | `/` | `[~]` | Rename Frothy to Froth, add a strong first-viewport product signal, add visual assets, and make the first code example current. |
-| `/install/` | `/install/` | `[~]` | Replace pre-alpha-only copy with the real launch availability path when release opens; ensure commands say `froth`. |
+| `/install/` | `/install/` | `[x]` | Real launch availability path is documented; commands say `froth`. |
 | `/guide/` | `/guide/` | `[x]` | Chaptered guide shape restored with current Froth semantics. |
 | `/guide/00-installation/` | `/install/` alias | `[x]` | Install remains canonical; the old guide chapter route resolves to it. |
 | `/guide/01-what-is-froth/` | `/guide/01-what-is-froth/` | `[x]` | Current live-image/lexical framing exists. |
