@@ -12,6 +12,7 @@ You can get in contact with me at: nkozak [at] nyu [dot] edu.
 Most of this site is OSAI generated (buyer beware) from the project repo at:
 
 [Froth](https://github.com/nikokozak/froth) - Stable, ESP32 targeting.
+
 [Frothy Rewrite](https://github.com/nikokozak/frothyrewrite) - Ongoing rewrite, ATMega328p and other small profiles.
 
 ```froth
