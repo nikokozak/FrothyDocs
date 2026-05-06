@@ -2,6 +2,8 @@
 title: "Interactive Profile"
 weight: 2
 description: "REPL behavior, multiline input, interrupts, inspection, and the control-session path."
+aliases:
+  - /reference/profiles/
 ---
 
 This page covers the maintained prompt-facing and tool-facing interactive
@@ -102,3 +104,20 @@ Example:
 ```text
 VS Code connect, send line, send file, interrupt, and simple inspection all ride on the helper-owned control session.
 ```
+
+## Capability Layers
+
+The interactive profile is only one layer of the public surface:
+
+- the core language: values, names, calls, blocks, control flow, `Cells`, and
+  `Code`
+- the interactive profile: prompt evaluation, multiline input, interrupts,
+  inspection, `save`, `restore`, and `dangerous.wipe`
+- tooling sessions: editor and CLI control paths over the same device-owned
+  image
+- board capabilities: GPIO, ADC, display, input, I2C, UART, or LEDC when the
+  selected board profile exposes them
+
+The old `profiles` page mixed language features with build-time capability
+selection. Current Froth keeps the split explicit: the language model is stable
+across targets, while the board surface depends on the selected base image.

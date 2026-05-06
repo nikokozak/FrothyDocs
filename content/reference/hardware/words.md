@@ -56,8 +56,11 @@ for the full behavior card and example.
 | [`millis:`](/reference/hardware/utilities/#millis) | 0 | `Int` | Uptime milliseconds |
 | [`ms:`](/reference/hardware/utilities/#ms) | 1 | `nil` | Sleep milliseconds |
 | [`random.below:`](/reference/hardware/utilities/#random-below) | 1 | `Int` | Random `0..n-1` |
-| [`math.clamp:`](/reference/hardware/utilities/#math-clamp) | 3 | `Int` | Clamp to range |
-| [`math.wrap:`](/reference/hardware/utilities/#math-wrap) | 2 | `Int` | Wrap around range |
+| [`min:`](/reference/hardware/utilities/#min) | 2 | `Int` | Smaller value |
+| [`max:`](/reference/hardware/utilities/#max) | 2 | `Int` | Larger value |
+| [`clamp:`](/reference/hardware/utilities/#clamp) | 3 | `Int` | Clamp to range |
+| [`wrap:`](/reference/hardware/utilities/#wrap) | 2 | `Int` | Wrap around range |
+| [`map:`](/reference/hardware/utilities/#map) | 5 | `Int` | Scale between ranges |
 
 ## Base Image
 
@@ -66,10 +69,10 @@ for the full behavior card and example.
 | `LED_BUILTIN` | 0 | `Int` | Built-in LED pin |
 | `A0` | 0 | `Int` | Board analog pin |
 | `BOOT_BUTTON` | 0 | `Int` | Boot button pin |
-| [`gpio.mode:`](/reference/hardware/base-image/) | 2 | `nil` | Configure pin mode |
-| [`gpio.write:`](/reference/hardware/base-image/) | 2 | `nil` | Write pin level |
-| [`gpio.read:`](/reference/hardware/input/#gpio-read) | 1 | `Int` | Read pin level |
-| [`gpio.input:`](/reference/hardware/input/#gpio-input) | 1 | `nil` | Configure input pin |
+| [`gpio.mode:`](/reference/hardware/gpio/) | 2 | `nil` | Configure pin mode |
+| [`gpio.write:`](/reference/hardware/gpio/) | 2 | `nil` | Write pin level |
+| [`gpio.read:`](/reference/hardware/gpio/) | 1 | `Int` | Read pin level |
+| [`gpio.input:`](/reference/hardware/gpio/) | 1 | `nil` | Configure input pin |
 | [`gpio.output:`](/reference/hardware/base-image/) | 1 | `nil` | Configure output pin |
 | [`gpio.high:`](/reference/hardware/base-image/) | 1 | `nil` | Set pin high |
 | [`gpio.low:`](/reference/hardware/base-image/) | 1 | `nil` | Set pin low |
@@ -84,6 +87,17 @@ for the full behavior card and example.
 | [`adc.read:`](/reference/hardware/base-image/) | 1 | `Int` | Read raw ADC pin |
 | [`adc.max`](/reference/hardware/base-image/) | 0 | `Int` | Maximum ADC reading |
 | [`adc.percent:`](/reference/hardware/base-image/) | 1 | `Int` | Read ADC pin as `0..100` |
+
+## Source-Board Peripherals
+
+These are not the beginner Machine path, but they are part of the maintained
+source-board reference surface where the selected board exposes them.
+
+| Family | Page | Use |
+| --- | --- | --- |
+| I2C | [I2C](/reference/hardware/i2c/) | Bus/device/register sensor work |
+| UART | [UART](/reference/hardware/uart/) | Auxiliary serial devices and console routing |
+| LEDC | [PWM and LEDC](/reference/hardware/pwm-and-ledc/) | PWM duty, hardware fade, servo pulses |
 
 ## Demos And Puzzle
 

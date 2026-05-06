@@ -1,6 +1,6 @@
 ---
 title: "Build a Small Game"
-weight: 4
+weight: 8
 description: "Turn display, input, and live redefinition into a tiny catch-the-dot game."
 ---
 
@@ -25,10 +25,10 @@ Read the joystick and wrap at the display edges:
 
 ```froth
 game.move is fn [
-  when joy.left?: [ set game.x to math.wrap: game.x - 1, 0, grid.width ];
-  when joy.right?: [ set game.x to math.wrap: game.x + 1, 0, grid.width ];
-  when joy.up?: [ set game.y to math.wrap: game.y - 1, 0, grid.height ];
-  when joy.down?: [ set game.y to math.wrap: game.y + 1, 0, grid.height ]
+  when joy.left?: [ set game.x to wrap: game.x - 1, grid.width ];
+  when joy.right?: [ set game.x to wrap: game.x + 1, grid.width ];
+  when joy.up?: [ set game.y to wrap: game.y - 1, grid.height ];
+  when joy.down?: [ set game.y to wrap: game.y + 1, grid.height ]
 ]
 ```
 
@@ -91,7 +91,7 @@ game.run is fn [
   game.placeTarget:;
   repeat 400 [
     game.frame:;
-    ms: (math.clamp: 160 - (game.score * 8), 35, 160)
+    ms: (clamp: 160 - (game.score * 8), 35, 160)
   ]
 ]
 ```
@@ -110,7 +110,7 @@ The first version draws player and target the same way. Redefine only
 ```froth
 game.draw is fn [
   grid.clear:;
-  when (millis: mod 300) < 180 [
+  when ((millis:) % 300) < 180 [
     grid.set: game.tx, game.ty, true
   ];
   grid.set: game.x, game.y, true;

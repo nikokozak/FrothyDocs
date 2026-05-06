@@ -67,4 +67,4 @@ values are read by name, locals are lexical, and code is just another value.
 - `save`, `restore`, and `dangerous.wipe` operate on the overlay image.
 - The device is the real environment. Host tools help you get there faster.
 
-Next: [Values, names, and rebinding](/guide/02-values-names-and-rebinding/).
+Next: [Getting started](/guide/02-getting-started/).
