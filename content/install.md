@@ -12,6 +12,10 @@ is:
 froth
 ```
 
+The source code and project history live in the
+[Froth source repository](https://github.com/nikokozak/froth); release files are
+published from the same repo.
+
 ## Homebrew
 
 On macOS, use the Froth Homebrew tap:
