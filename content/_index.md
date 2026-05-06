@@ -3,7 +3,7 @@ title: "Froth"
 description: "Learn the live lexical language for programmable devices."
 ---
 
-Froth is a small live lexical language for programmable devices, created by Nikolai Kozak.
+**Froth is a small live lexical language for programmable devices, created by Nikolai Kozak.**
 
 Froth is in pre-pre-pre alpha and in ongoing development. It was designed as a thesis project at the NYU ITP program.
 
