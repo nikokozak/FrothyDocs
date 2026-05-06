@@ -37,18 +37,45 @@ random.below: grid.width
 
 ## Math
 
-**`math.clamp:`** *(utility)* `(value, lo, hi) -> Int`
+**`min:`** *(utility)* `(a, b) -> Int`
+
+Behavior: Return the smaller value.
+
+```froth
+min: player.x, target.x
+```
+
+**`max:`** *(utility)* `(a, b) -> Int`
+
+Behavior: Return the larger value.
+
+```froth
+max: player.x, 0
+```
+
+**`clamp:`** *(utility)* `(value, lo, hi) -> Int`
 
 Behavior: Clamp a value to the inclusive range `lo..hi`.
 
 ```froth
-math.clamp: player.x, 0, (grid.width - 1)
+clamp: player.x, 0, (grid.width - 1)
 ```
 
-**`math.wrap:`** *(utility)* `(value, size) -> Int`
+**`wrap:`** *(utility)* `(value, size) -> Int`
 
 Behavior: Wrap a value into the range `0..size - 1`.
 
 ```froth
-math.wrap: player.x, grid.width
+wrap: player.x, grid.width
 ```
+
+**`map:`** *(utility)* `(value, inLo, inHi, outLo, outHi) -> Int`
+
+Behavior: Linearly map a value from one range to another.
+
+```froth
+map: knob.right:, 0, 100, 180, 20
+```
+
+The longer `math.*` names are also present in the base library. The short
+aliases are the names used in beginner material.

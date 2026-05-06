@@ -2,6 +2,8 @@
 title: "Editor"
 weight: 5
 description: "The visible VS Code control surface: connect, send, inspect, interrupt, and recover."
+aliases:
+  - /reference/vscode/
 ---
 
 The editor is a thin client over the device-owned image. It does not own a
@@ -96,3 +98,14 @@ with `Interrupt`. If that does not settle the helper, use `Force Reconnect`.
 If saved state is bad after reboot, use the safe-boot path, inspect `boot`, and
 run `dangerous.wipe` only when you are intentionally returning to the base
 image.
+
+## Extension Identity
+
+The public extension identity is `NikolaiKozak.froth`. If VS Code cannot find
+the CLI on `PATH`, set `froth.cliPath` to the absolute path of the installed
+binary.
+
+The extension is deliberately thin. Syntax highlighting, send commands,
+inspection commands, interrupt, and recovery all point back at the connected
+target. There is no hidden host-side interpreter whose state needs to be
+reconciled with the board.

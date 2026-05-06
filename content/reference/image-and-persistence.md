@@ -2,6 +2,8 @@
 title: "Image and Persistence"
 weight: 3
 description: "Base versus overlay, rebinding, `save`, `restore`, `dangerous.wipe`, and `boot`."
+aliases:
+  - /reference/snapshot-format/
 ---
 
 Froth persists the overlay image and rebuilds the base image at boot.
@@ -177,3 +179,22 @@ Typical recovery flow:
 3. Run `show @boot` or `info @boot`.
 4. Fix the bad slot, or run `dangerous.wipe`.
 ```
+
+## Snapshot Format Boundary
+
+The public contract is the model above: base image, overlay image, pointer-safe
+restore, and recovery to a usable prompt. The binary snapshot format is an
+implementation detail and may change while the pre-release runtime settles.
+
+The important public constraints are stable:
+
+- the base image is not duplicated into the snapshot
+- overlay bindings are restored by symbol identity
+- persistable code, text, records, and cells payload are serialized as values,
+  not raw pointers
+- native driver handles and live execution state do not persist
+- incompatible snapshots must be rejected rather than half-restored
+
+That is why persisted code can call `gpio.write` after restore without storing
+the C function pointer. The restored overlay resolves `gpio.write` against the
+boot-rebuilt base image.

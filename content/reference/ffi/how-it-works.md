@@ -124,6 +124,5 @@ const froth_ffi_entry_t froth_project_bindings[] = {
 ```
 
 Boot installs project bindings after board bindings and before restore and
-`autorun`. That order means a saved overlay can refer to stable board and
-project words, while native runtime state itself remains outside the saved
-image.
+`boot`. That order means a saved overlay can refer to stable board and project
+words, while native runtime state itself remains outside the saved image.

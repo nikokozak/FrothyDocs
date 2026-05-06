@@ -15,6 +15,11 @@ Froth's maintained hardware surface is layered:
   helpers used by Machine sketches
 - [Base image](/reference/hardware/base-image/) for GPIO, LED, ADC, and seeded
   pins
+- [GPIO](/reference/hardware/gpio/) and [Timing](/reference/hardware/timing/)
+  for the low-level shared board words
+- [I2C](/reference/hardware/i2c/), [UART](/reference/hardware/uart/), and
+  [PWM/LEDC](/reference/hardware/pwm-and-ledc/) for source-board peripheral
+  surfaces outside the beginner Machine path
 
 This first public cut treats the TM1629-based `esp32-devkit-v4-game-board` as
 the protoboard target while still documenting the shared base-image board

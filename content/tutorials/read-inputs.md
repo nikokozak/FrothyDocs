@@ -1,6 +1,6 @@
 ---
 title: "Read Inputs"
-weight: 3
+weight: 5
 description: "Read joystick and knob inputs on the Froth Machine, then map them to display state."
 ---
 
@@ -38,7 +38,7 @@ Use the left knob as an x coordinate:
 
 ```froth
 input.frame is fn [
-  here x is scale: knob.left:, (grid.width - 1);
+  here x is scale: (knob.left:), (grid.width - 1);
   grid.clear:;
   grid.set: x, 3, true;
   grid.show:
@@ -69,10 +69,10 @@ Update it from the joystick:
 
 ```froth
 cursor.step is fn [
-  when joy.left?: [ set cursor.x to math.wrap: cursor.x - 1, 0, grid.width ];
-  when joy.right?: [ set cursor.x to math.wrap: cursor.x + 1, 0, grid.width ];
-  when joy.up?: [ set cursor.y to math.wrap: cursor.y - 1, 0, grid.height ];
-  when joy.down?: [ set cursor.y to math.wrap: cursor.y + 1, 0, grid.height ]
+  when joy.left?: [ set cursor.x to wrap: cursor.x - 1, grid.width ];
+  when joy.right?: [ set cursor.x to wrap: cursor.x + 1, grid.width ];
+  when joy.up?: [ set cursor.y to wrap: cursor.y - 1, grid.height ];
+  when joy.down?: [ set cursor.y to wrap: cursor.y + 1, grid.height ]
 ]
 ```
 

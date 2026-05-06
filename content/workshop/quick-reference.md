@@ -73,8 +73,8 @@ Ctrl-C during boot              Safe boot
 ms: 100                         Wait 100 milliseconds
 millis:                         Current uptime in ms
 random.below: n                 Random 0 to n-1
-math.clamp: val, lo, hi         Clamp to range
-math.wrap: val, size            Wrap around
+clamp: val, lo, hi              Clamp to range
+wrap: val, size                 Wrap around
 ```
 
 ## Call Syntax
@@ -87,4 +87,3 @@ word: a, b                      With arguments
 
 For exact arity and examples, see the
 [Machine board reference](/reference/hardware/words/).
-
