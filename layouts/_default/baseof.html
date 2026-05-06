@@ -16,6 +16,9 @@
   <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
 </head>
 <body data-search-index="{{ "index.json" | relURL }}">
+  <div class="prealpha-banner">
+    Froth, and this site, are in pre-alpha. Please expect frequent and breaking changes.
+  </div>
   <header class="site-header">
     <nav>
       <a href="{{ "/" | relURL }}" class="site-title">Froth</a>
@@ -44,6 +47,7 @@
 
   <footer class="site-footer">
     <p>Froth — a live lexical language for programmable devices</p>
+    <p>The site content is a mix of my own content and AI-created documentation based on the source repo.</p>
   </footer>
 
   {{ partial "search.html" . }}
