@@ -25,8 +25,8 @@ save
 
 Froth is built around stable named slots, lexical scopes, non-capturing `Code`,
 explicit persistence, and direct inspection of the live device image. It keeps
-the device in the center: change a name, inspect the result, save the image
-when it is worth keeping.
+the device in the center, and everything is live. You can change a name, inspect
+the result, save the image when it is worth keeping.
 
 ## Live Image, Not Upload Cycles
 
@@ -37,19 +37,24 @@ and reset that overlay without pretending the device is disposable.
 
 ## Lexical, Inspectable, Device-First
 
-Froth does not put a data stack at the user-facing center. Everything
-user-facing is either a value or a place that holds one. Blocks are lexical.
+Everything user-facing is either a value or a place that holds one.
 `Code` is just another value. Inspection is part of ordinary work:
-`words`, `show`, `see`, `core`, and `info` are built into the maintained
+`words`, `show`, `see`, `core`, and `info` are built into the
 interactive surface.
 
 ## Built For Real Boards
 
 Froth is embedded-device-first. Host and local paths make development faster,
-but the maintained proof path stays on connected ESP32 hardware. The
+but the core is geared at embedded hardware. The
 protoboard target documented here is the TM1629-based
 `esp32-devkit-v4-game-board`, with the shared base-image board library
 underneath it.
+
+At the moment, Froth is only released for an ESP32 target. It is currently
+being updated and rewritten. An experimental rewrite with support for the
+ATMega328p, as well as more granular language profiles, can be found at:
+
+[Experimental Rewrite](https://github.com/nikokozak/frothyrewrite)
 
 On this site, that protoboard is introduced as the [Froth Machine](/machine/):
 the display, joystick, knobs, and small game-shaped workflow you can learn in a
@@ -68,5 +73,5 @@ workshop without reading low-level board reference first.
   reference, and troubleshooting.
 - [Use the reference](/reference/) when you need exact behavior or library
   surface details.
-- [Read the migration notes](/what-makes-froth-different/) if you are coming
-  from OldFroth.
+- [Read the migration notes](/what-makes-froth-different/) if you need
+  compatibility context.
