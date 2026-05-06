@@ -4,7 +4,7 @@ description: "How `Code`, lexical blocks, locals, and computed calls fit togethe
 weight: 3
 ---
 
-`Code` is a first-class value in Frothy. You can bind it to a top-level slot,
+`Code` is a first-class value in Froth. You can bind it to a top-level slot,
 pass it around, and call it with ordinary syntax.
 
 ## Named Code
@@ -12,7 +12,7 @@ pass it around, and call it with ordinary syntax.
 Top-level code is still just a stable slot holding a `Code` value. The docs
 mostly use two surface styles:
 
-```frothy
+```froth
 boot is fn [ led.on: ]
 
 to pulse with pin, wait [
@@ -33,7 +33,7 @@ reserve `to` for the sentence-shaped form.
 Both definitions above end in the same place: a stable top-level slot holding
 callable `Code`.
 
-If you call `pulse`, Frothy looks up the top-level slot named `pulse`, finds a
+If you call `pulse`, Froth looks up the top-level slot named `pulse`, finds a
 `Code` value there, and runs it. That is the same lookup story you saw in the
 last chapter. The only difference is that the value happens to be callable.
 
@@ -41,7 +41,7 @@ last chapter. The only difference is that the value happens to be callable.
 
 Use `fn` when you want a `Code` value directly:
 
-```frothy
+```froth
 twice is fn with action [
   action:;
   action:
@@ -53,7 +53,7 @@ that argument is itself another `Code` value.
 
 For example:
 
-```frothy
+```froth
 beep is fn [ led.blink: 1, 30 ]
 twice: beep
 ```
@@ -66,7 +66,7 @@ that the value it received is callable.
 A block introduces a lexical scope and yields the value of its last expression.
 If there is no final expression, the block yields `nil`.
 
-```frothy
+```froth
 to add-one with n [
   here next is n + 1;
   next
@@ -90,7 +90,7 @@ Inside a block:
 - `name is expr` also creates a local in the current lexical scope
 - `set name to expr` mutates an existing local
 
-```frothy
+```froth
 to countdown with n [
   here current is n;
   while current > 0 [
@@ -103,7 +103,7 @@ If there is no existing place to mutate, `set` is a runtime error.
 
 One small but important distinction:
 
-```frothy
+```froth
 to demo with n [
   here total is n;
   set total to total + 1;
@@ -113,7 +113,7 @@ to demo with n [
 
 `here total is n` creates the local. `set total to ...` updates the existing
 local. If you try to `set` a name that does not already exist in a reachable
-scope, Frothy signals an error instead of creating it silently.
+scope, Froth signals an error instead of creating it silently.
 
 ## Non-Capturing `Code`
 
@@ -130,7 +130,7 @@ one rejected example.
 
 This works:
 
-```frothy
+```froth
 unit is 75
 
 make-blink is fn [
@@ -150,7 +150,7 @@ Why it works:
 
 Now compare that to this:
 
-```frothy
+```froth
 to make-blink with wait [
   fn with pin [
     gpio.high: pin;
@@ -160,7 +160,7 @@ to make-blink with wait [
 ]
 ```
 
-This is the shape Frothy rejects. `wait` is a local or parameter of the outer
+This is the shape Froth rejects. `wait` is a local or parameter of the outer
 function, and the inner `fn` is trying to capture it.
 
 The rule is not "nested `fn` is forbidden". The rule is "nested `fn` may not
@@ -172,7 +172,7 @@ Usually there are two clean rewrites.
 
 First: move the shared value to top level if it is truly shared configuration.
 
-```frothy
+```froth
 wait is 75
 
 make-blink is fn [
@@ -187,7 +187,7 @@ make-blink is fn [
 Second: pass the value explicitly at call time instead of trying to hide it in
 the closure.
 
-```frothy
+```froth
 to blink-once with pin, wait [
   gpio.high: pin;
   ms: wait;
@@ -195,14 +195,14 @@ to blink-once with pin, wait [
 ]
 ```
 
-That second form is usually the better Frothy answer. It keeps the data flow
+That second form is usually the better Froth answer. It keeps the data flow
 visible.
 
 ## Scope Example: Inner `fn` With Its Own Locals
 
 An inner `fn` may still create and use locals *inside itself*:
 
-```frothy
+```froth
 counter-stepper is fn [
   fn with n [
     here next is n + 1;
@@ -217,7 +217,7 @@ This is fine because `next` belongs to the inner function's own body.
 
 One more example makes the non-capturing rule clearer.
 
-```frothy
+```froth
 scale is 10
 
 make-scaler is fn [
@@ -230,8 +230,8 @@ make-scaler is fn [
 
 The question is: which `scale` should the inner `fn` mean?
 
-If Frothy allowed capture, the answer would be "the local `scale` from
-`make-scaler`". Frothy does not allow that. The inner function may only use
+If Froth allowed capture, the answer would be "the local `scale` from
+`make-scaler`". Froth does not allow that. The inner function may only use
 its own locals, its parameters, and top-level names. So this shape is rejected
 instead of quietly creating a hidden closure.
 
@@ -242,13 +242,13 @@ story instead of implicit captured environments.
 
 The ordinary call form is:
 
-```frothy
+```froth
 callee: arg1, arg2
 ```
 
 When the callee is itself an expression, use `call`:
 
-```frothy
+```froth
 call pickAction: with
 ```
 

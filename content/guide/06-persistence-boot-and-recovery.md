@@ -4,14 +4,14 @@ description: "How `save`, `restore`, `dangerous.wipe`, `boot`, and safe boot fit
 weight: 6
 ---
 
-Frothy persists the overlay image, not the current execution.
+Froth persists the overlay image, not the current execution.
 
 That means local scopes, in-flight evaluation, and native runtime pointers do
 not survive persistence. Top-level overlay state does.
 
 ## The Three Persistence Operations
 
-```frothy
+```froth
 save
 restore
 dangerous.wipe
@@ -27,7 +27,7 @@ dangerous.wipe
 If the top-level slot `boot` holds `Code` after restore, the runtime executes
 it under top-level recovery before entering the prompt.
 
-```frothy
+```froth
 boot is fn [
   led.on:
 ]
@@ -47,7 +47,7 @@ wipe it.
 Base-image names are the recovery anchor. If you shadow a base name in
 the overlay and later call `dangerous.wipe`, the boot-rebuilt base value wins.
 
-That rule is what lets Frothy keep rebinding flexible without making recovery
+That rule is what lets Froth keep rebinding flexible without making recovery
 fragile.
 
 ## A Good Habit

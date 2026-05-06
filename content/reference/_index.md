@@ -17,7 +17,10 @@ The main sections are:
   multiline input, interrupts, and inspection
 - [Image and persistence](/reference/image-and-persistence/) for base versus
   overlay and the recovery surface
-- [CLI](/reference/cli/) for the maintained command-line and editor path
-- [FFI](/reference/ffi/) for the Frothy/C boundary
+- [CLI](/reference/cli/) for the maintained command-line path
+- [Editor](/reference/editor/) for the visible VS Code control surface
+- [Project and build](/reference/project-and-build/) for target, board, and
+  project build conventions
+- [FFI](/reference/ffi/) for the Froth/C boundary
 - [Machine board reference](/reference/hardware/) for board words, display,
   input, utilities, and the shared base-image surface

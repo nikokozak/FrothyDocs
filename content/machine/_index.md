@@ -18,7 +18,7 @@ Start with the friendly board layer:
 
 If you want one five-line proof that the board is alive, use this:
 
-```frothy
+```froth
 matrix.init:
 grid.clear:
 grid.set: 1, 1, true

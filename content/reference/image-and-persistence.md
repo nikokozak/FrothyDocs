@@ -4,7 +4,7 @@ weight: 3
 description: "Base versus overlay, rebinding, `save`, `restore`, `dangerous.wipe`, and `boot`."
 ---
 
-Frothy persists the overlay image and rebuilds the base image at boot.
+Froth persists the overlay image and rebuilds the base image at boot.
 
 ## Image Shape
 
@@ -22,7 +22,7 @@ Example:
 
 Worked example:
 
-```frothy
+```froth
 pulse is fn [ led.on: ]
 message is "draft"
 ```
@@ -38,14 +38,14 @@ names may be shadowed by overlay writes, but `dangerous.wipe` restores the
 boot-rebuilt base value.  
 Example:
 
-```frothy
+```froth
 blink is fn [ 99 ]
 dangerous.wipe
 ```
 
 Worked example:
 
-```frothy
+```froth
 show @blink
 blink is fn [ "temporary overlay version" ]
 show @blink
@@ -65,13 +65,13 @@ Behavior: Snapshots the overlay image only. The saved walk includes overlay
 top-level bindings plus persistable objects they own.  
 Example:
 
-```frothy
+```froth
 save
 ```
 
 Worked example:
 
-```frothy
+```froth
 record Cursor [ x, y ]
 cursor is Cursor: 2, 3
 save
@@ -87,13 +87,13 @@ Behavior: Replaces the live overlay with the persisted overlay. If restore
 fails, the runtime must remain in a usable base state.  
 Example:
 
-```frothy
+```froth
 restore
 ```
 
 Worked example:
 
-```frothy
+```froth
 record Cursor [ x, y ]
 cursor is Cursor: 2, 3
 save
@@ -111,13 +111,13 @@ Behavior: Clears both the live overlay and the stored overlay and returns the
 running image to base-only state.  
 Example:
 
-```frothy
+```froth
 dangerous.wipe
 ```
 
 Worked example:
 
-```frothy
+```froth
 record Session [ count ]
 session is Session: 4
 save
@@ -137,13 +137,13 @@ Behavior: If `boot` holds `Code` after restore, the runtime executes it before
 entering the prompt.  
 Example:
 
-```frothy
+```froth
 boot is fn [ led.on: ]
 ```
 
 Worked example:
 
-```frothy
+```froth
 record State [ ready ]
 state is State: false
 

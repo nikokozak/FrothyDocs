@@ -4,7 +4,7 @@ description: "Use the prompt to inspect the current image, not just to type code
 weight: 5
 ---
 
-Frothy is meant to be inspected while it is live. The prompt-facing surface is
+Froth is meant to be inspected while it is live. The prompt-facing surface is
 not only for evaluation; it is also for asking the running image what it
 contains.
 
@@ -12,7 +12,7 @@ contains.
 
 Use these first:
 
-```frothy
+```froth
 words
 show @blink
 see @blink
@@ -29,7 +29,7 @@ What they are for:
 
 Here is a more realistic pass:
 
-```frothy
+```froth
 record Counter [ value ]
 counter is Counter: 2
 counter.bump is fn [ set counter->value to counter->value + 1 ]
@@ -51,7 +51,7 @@ What you are looking for:
 
 ## The Usual Loop
 
-A normal Frothy loop looks like this:
+A normal Froth loop looks like this:
 
 1. define or rebind a top-level slot
 2. run it immediately
@@ -63,7 +63,7 @@ That loop is not a shortcut. It is the intended product surface.
 
 For example:
 
-```frothy
+```froth
 record Cursor [ x, y ]
 cursor is Cursor: 0, 0
 moveRight is fn [ set cursor->x to cursor->x + 1 ]
@@ -75,7 +75,7 @@ show @cursor
 save
 ```
 
-This is normal Frothy work:
+This is normal Froth work:
 
 - define a small piece of state
 - define a small operation
@@ -94,7 +94,7 @@ The maintained REPL:
 
 If the prompt state feels unclear, start with:
 
-```frothy
+```froth
 words
 info @boot
 show @boot
@@ -102,7 +102,7 @@ show @boot
 
 If you think the wrong definition is live, add:
 
-```frothy
+```froth
 show @yourName
 see @yourName
 info @yourName
@@ -116,7 +116,7 @@ That usually tells you whether the problem is:
 
 ## Inspection Is About The Image
 
-Frothy's inspection tools are there to tell you about the current binding and
+Froth's inspection tools are there to tell you about the current binding and
 image state, not about a separate source-of-truth file on the host. That is
 why rebinding, persistence, and inspection fit together cleanly.
 

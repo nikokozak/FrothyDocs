@@ -1,19 +1,19 @@
 ---
 title: "CLI"
 weight: 4
-description: "The maintained `froth` command surface, naming split, and attendee-versus-maintainer paths."
+description: "The maintained `froth` command surface and attendee-versus-maintainer paths."
 ---
 
-The public product is Frothy, but the installed CLI command remains `froth`
-during the current transition.
+The public command is `froth`. Use it for environment checks, direct prompt
+sessions, source sends, project builds, and device flashing.
 
 ## Identity and Naming
 
-**`Frothy product / froth CLI`** *(tooling surface)*
+**`Froth product / froth CLI`** *(tooling surface)*
 
 Layer: `core`  
 Behavior: Product, docs, release assets, Homebrew formula, and VS Code surface
-use `Frothy` / `frothy`; the installed released CLI binary remains `froth`.  
+use `Froth` / `froth`.
 Example:
 
 ```sh
