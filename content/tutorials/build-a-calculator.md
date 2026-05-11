@@ -8,10 +8,9 @@ This tutorial does not need hardware. Use a local target or a connected board.
 The point is to practice the current Froth style without a display or sensor
 in the way.
 
-OldFroth made a calculator feel natural because the public language was a
-stack. Current Froth uses names and values instead. That changes the shape of
-the program, but not the exercise: build small operations, test each one, then
-compose them.
+Froth uses names and values instead of a calculator-style stack. That changes
+the shape of the program, but not the exercise: build small operations, test
+each one, then compose them.
 
 ## State
 

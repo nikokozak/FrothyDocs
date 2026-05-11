@@ -47,17 +47,17 @@ Read that as ordinary named code:
 If you redefine `blink`, old callers see the new definition because they still
 resolve through the same stable top-level slot.
 
-## What Changed From OldFroth
+## What Makes It Different
 
-Froth keeps the best substrate ideas from OldFroth:
+Froth is built around a few current priorities:
 
 - live interaction on the device
 - coherent redefinition
 - persistence and recovery
 - transparent inspection
 
-But it deliberately drops the old stack-centric public model. In Froth,
-values are read by name, locals are lexical, and code is just another value.
+It deliberately keeps the public model named and lexical. In Froth, values are
+read by name, locals are lexical, and code is just another value.
 
 ## The First Things To Keep In Your Head
 

@@ -6,8 +6,7 @@ aliases:
   - /guide/04-control-flow-cells-and-records/
 ---
 
-OldFroth taught control flow through quotations on the stack. Current Froth
-keeps code-as-value, but the syntax is lexical and direct.
+Froth keeps code as a value, but the syntax is lexical and direct.
 
 The most important rule is simple: a block creates a scope and yields the value
 of its last expression.

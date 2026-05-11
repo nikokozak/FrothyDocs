@@ -35,6 +35,28 @@ froth doctor
 froth --port <path> doctor
 ```
 
+**`froth new`** *(CLI)*
+
+Layer: `core`
+Behavior: Creates a Froth project with `froth.toml`, `src/main.froth`, and the
+selected target and board.
+Example:
+
+```sh
+froth new blink --target esp-idf --board esp32-devkit-v1
+```
+
+**`froth setup esp-idf`** *(CLI)*
+
+Layer: `core`
+Behavior: Installs the optional ESP-IDF toolchain used for custom ESP32 builds
+and flashing.
+Example:
+
+```sh
+froth setup esp-idf
+```
+
 **`froth connect`** *(CLI)*
 
 Layer: `core`  

@@ -21,7 +21,12 @@ Example:
 ```toml
 [project]
 name = "blink"
-source = "src/main.froth"
+version = "0.1.0"
+entry = "src/main.froth"
+
+[target]
+board = "esp32-devkit-v1"
+platform = "esp-idf"
 ```
 
 **`src/main.froth`** *(project source)*

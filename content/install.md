@@ -21,6 +21,7 @@ published from the same repo.
 On macOS, use the Froth Homebrew tap:
 
 ```sh
+brew tap nikokozak/froth
 brew install nikokozak/froth/froth
 froth --version
 froth doctor
@@ -28,19 +29,19 @@ froth doctor
 
 ## Direct Tarball
 
-The current CLI release is `v0.1.0`. Download the archive for your platform:
+The current CLI release is `v0.1.2`. Download the archive for your platform:
 
 ```text
-froth-v0.1.0-darwin-arm64.tar.gz
-froth-v0.1.0-darwin-amd64.tar.gz
-froth-v0.1.0-linux-amd64.tar.gz
+froth-v0.1.2-darwin-arm64.tar.gz
+froth-v0.1.2-darwin-amd64.tar.gz
+froth-v0.1.2-linux-amd64.tar.gz
 ```
 
 Use `darwin-arm64` for Apple Silicon macOS, `darwin-amd64` for Intel macOS,
 or `linux-amd64` for x86_64 Linux:
 
 ```sh
-VERSION=0.1.0
+VERSION=0.1.2
 PLATFORM=darwin-arm64
 curl -LO https://github.com/nikokozak/froth/releases/download/v${VERSION}/froth-v${VERSION}-${PLATFORM}.tar.gz
 tar -xzf froth-v${VERSION}-${PLATFORM}.tar.gz
@@ -58,7 +59,7 @@ Use a directory already on `PATH`; on macOS, `/usr/local/bin` or
 Install the public VS Code extension as `NikolaiKozak.froth` from the
 Marketplace.
 
-The `v0.1.0` Froth release also carries a fallback VSIX:
+The `v0.1.2` Froth release also carries a fallback VSIX:
 
 ```text
 froth-vscode-v0.1.1.vsix
@@ -67,7 +68,7 @@ froth-vscode-v0.1.1.vsix
 Install it from a shell where the VS Code `code` command is available:
 
 ```sh
-curl -LO https://github.com/nikokozak/froth/releases/download/v0.1.0/froth-vscode-v0.1.1.vsix
+curl -LO https://github.com/nikokozak/froth/releases/download/v0.1.2/froth-vscode-v0.1.1.vsix
 code --install-extension froth-vscode-v0.1.1.vsix
 ```
 
@@ -82,5 +83,46 @@ After installing the CLI, run:
 froth doctor
 ```
 
+If you have a preflashed Froth board plugged in, connect to it:
+
+```sh
+froth connect
+```
+
+If more than one serial device is visible, pass the port explicitly:
+
+```sh
+froth --port /dev/tty.usbserial-XXXX connect
+```
+
+## Flash An ESP32
+
+Most workshop boards are preflashed. You only need this section when you are
+installing or recovering firmware yourself.
+
+Install the ESP-IDF toolchain through the Froth CLI:
+
+```sh
+froth setup esp-idf
+froth doctor
+```
+
+Then create an ESP32 project. Use `esp32-devkit-v1` for a plain DevKit-style
+board, or `esp32-devkit-v4-game-board` for the Froth Machine:
+
+```sh
+froth new blink --target esp-idf --board esp32-devkit-v1
+cd blink
+froth doctor
+froth --port /dev/tty.usbserial-XXXX flash
+```
+
+After flashing, use the live path for ordinary changes:
+
+```sh
+froth --port /dev/tty.usbserial-XXXX connect
+froth --port /dev/tty.usbserial-XXXX send src/main.froth
+```
+
 For release files and checksums, use the
-[Froth v0.1.0 release](https://github.com/nikokozak/froth/releases/tag/v0.1.0).
+[Froth v0.1.2 release](https://github.com/nikokozak/froth/releases/tag/v0.1.2).

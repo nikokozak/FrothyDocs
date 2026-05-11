@@ -1,14 +1,14 @@
 ---
 title: "03. Values and Expressions"
-description: "The current replacement for the old stack chapter: values, calls, grouping, and left-to-right evaluation."
+description: "Values, calls, grouping, and left-to-right evaluation."
 weight: 3
 aliases:
   - /guide/02-values-names-and-rebinding/
 ---
 
-OldFroth put the data stack in the center of the public language. Current
-Froth does not. The runtime still has internal machinery, but the language you
-write is organized around values, expressions, names, and calls.
+Froth does not put a data stack in the center of the public language. The
+runtime still has internal machinery, but the language you write is organized
+around values, expressions, names, and calls.
 
 That shift is not cosmetic. It changes how you read code.
 

@@ -22,7 +22,6 @@ for needle in \
   'uart.init' \
   'ledc.timer-config' \
   'matrix' \
-  'OldFroth' \
   'game.run' \
   'dial.solve' \
   'scan.solve' \

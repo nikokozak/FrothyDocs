@@ -1,11 +1,10 @@
 ---
 title: "05. Locals, Names, and State"
-description: "The current replacement for `perm`: lexical locals, explicit mutation, and top-level Cells."
+description: "Lexical locals, explicit mutation, and top-level Cells."
 weight: 5
 ---
 
-OldFroth used `perm` to make stack rearrangement regular. Current Froth keeps
-the spirit of explicit data flow, but the public tools are different:
+Froth keeps data flow explicit, but the public tools are named and lexical:
 
 - parameters for inputs
 - locals for intermediate values
@@ -85,15 +84,9 @@ Cells are good for small tables, board-sized state, and simple buffers. They
 are not a general heap. In current Froth, `cells(n)` belongs in a top-level
 binding so the image can reason about ownership and persistence.
 
-## How To Translate Old Stack Thinking
+## Prefer Named Data Flow
 
-Old style:
-
-```froth
-3 p[a b a] perm
-```
-
-Current style:
+When a value matters enough to reuse, give it a name or pass it as a parameter:
 
 ```froth
 to weighted with value, scale [

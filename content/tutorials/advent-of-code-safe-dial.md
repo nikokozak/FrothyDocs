@@ -8,8 +8,7 @@ advanced: true
 This tutorial uses a local target. It is algorithm practice, not a hardware
 demo.
 
-The old version used OldFroth quotations and stack variables. The current
-translation keeps the puzzle shape but uses top-level `Cells`, named helpers,
+This version keeps the puzzle shape but uses top-level `Cells`, named helpers,
 and explicit state.
 
 The input is a sequence of signed rotations. Left turns are negative. Right

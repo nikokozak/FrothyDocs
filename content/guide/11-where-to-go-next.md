@@ -59,11 +59,10 @@ Read [FFI and C](/guide/12-ffi-and-c/) next, then the
 project-local C bindings. Board FFI is the path for firmware-owned board
 surfaces.
 
-## If You Are Coming From OldFroth
+## Design Differences
 
-Read [How Froth Is Different](/what-makes-froth-different/). The short version
-is that current Froth keeps the live image, coherent redefinition, recovery,
-and small-device discipline, but replaces the user-visible stack model with
-lexical values and named places.
+Read [How Froth Is Different](/what-makes-froth-different/) for the deeper
+design notes: live image, coherent redefinition, recovery, small-device
+discipline, lexical values, and named places.
 
 Next: [FFI and C](/guide/12-ffi-and-c/) if you want the extension boundary.

@@ -40,9 +40,8 @@ habit to learn: do one small thing, look at the response, and continue.
 
 ## Values, Not A Scratch Stack
 
-OldFroth taught the first session through a visible data stack. Current Froth
-does not. A line is an expression, and names are the main way you keep useful
-state around.
+You do not need to manage a visible data stack to start. A line is an
+expression, and names are the main way you keep useful state around.
 
 Create a top-level name:
 
