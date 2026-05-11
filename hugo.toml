@@ -1,4 +1,4 @@
-baseURL = "https://frothy.frothlang.org/"
+baseURL = "https://frothlang.org/"
 languageCode = "en-us"
 title = "Froth"
 relativeURLs = true
