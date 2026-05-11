@@ -4,7 +4,7 @@ description: "Archive policy for the original Froth language and site."
 ---
 
 OldFroth is the original Froth language and documentation set. It remains useful
-as history and substrate reference, but it is no longer the current product
+as history and reference material, but it is no longer the current product
 described by this site.
 
 The current language is Froth.

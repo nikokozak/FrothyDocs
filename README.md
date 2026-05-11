@@ -1,4 +1,4 @@
-# FrothyDocs
+# Froth Docs
 
 Staging Hugo source for the public Froth documentation site.
 
