@@ -33,6 +33,8 @@ blink: LED_BUILTIN
 save
 ```
 
+## Why Froth?
+
 We're used to one major paradigm in embedded programming (think Arduino, etc.): code, compile, upload, and run. Once our program is on the microcontroller, it's basically in a black box. You can't really talk to it, inspect it, change it live.
 
 Froth allows you to do just that: the microcontroller becomes a transparent system. You can redefine functions live, save your progress, read back the source code that's on the device in a human-readable format, and much more. More importantly, **the device is the computer**.
