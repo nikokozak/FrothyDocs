@@ -166,6 +166,59 @@ main {
   /* handled by general styles */
 }
 
+.homepage .content table {
+  width: 100%;
+  margin: 20px 0 30px;
+  border: 1px solid var(--color-border);
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.homepage .content th,
+.homepage .content td {
+  padding: 12px 14px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--color-border);
+  overflow-wrap: break-word;
+}
+
+.homepage .content th {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  background: var(--color-code-bg);
+}
+
+.homepage .content th + th,
+.homepage .content td + td {
+  border-left: 1px solid var(--color-border);
+}
+
+.homepage .content tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.homepage .content td:first-child {
+  width: 112px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.homepage .content td:nth-child(2),
+.homepage .content td:nth-child(3) {
+  width: calc((100% - 112px) / 2);
+}
+
+.homepage .content table code {
+  font-size: 0.78em;
+  white-space: nowrap;
+}
+
 /* === Page === */
 .page-header h1,
 .section-page .page-header h1 {
@@ -1132,6 +1185,63 @@ main .reference-page {
   }
   .home-hero {
     margin-bottom: 28px;
+  }
+  .homepage .content table {
+    display: block;
+    border: 0;
+    border-radius: 0;
+    font-size: 0.9rem;
+    overflow: visible;
+  }
+  .homepage .content thead {
+    display: none;
+  }
+  .homepage .content tbody,
+  .homepage .content tr,
+  .homepage .content td {
+    display: block;
+    width: 100%;
+  }
+  .homepage .content tr {
+    margin-bottom: 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .homepage .content th + th,
+  .homepage .content td + td {
+    border-left: 0;
+  }
+  .homepage .content td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--color-border);
+    overflow-wrap: anywhere;
+  }
+  .homepage .content table code {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+  .homepage .content td:first-child {
+    width: 100%;
+    background: var(--color-code-bg);
+  }
+  .homepage .content td:nth-child(2),
+  .homepage .content td:nth-child(3) {
+    width: 100%;
+  }
+  .homepage .content td:nth-child(2)::before,
+  .homepage .content td:nth-child(3)::before {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: var(--color-text-secondary);
+  }
+  .homepage .content td:nth-child(2)::before {
+    content: "Released Froth";
+  }
+  .homepage .content td:nth-child(3)::before {
+    content: "Experimental rewrite";
   }
   .ref-entry {
     padding: 14px 14px 0;
